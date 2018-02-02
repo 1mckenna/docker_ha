@@ -1,0 +1,5 @@
+  usb_path: /dev/ttyACM0
+  debug: false
+  new_entity_ids: true
+  network_key: !secret zwave_key
+  polling_interval: 45000
