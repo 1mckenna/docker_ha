@@ -32,40 +32,8 @@ If you have any other files that you need copied into the build image so it will
 	./createContainer.sh
    If you forgot to look you can see what images you have by running 
 	docker ps -a
-
+   YOU HAVE TO DO THIS EACH TIME YOU BUILD A NEW IMAGE
 
 9. As soon as you run createContainer docker will start the image and HA will start and bind to the rpi network address and pass the traffic normally. If you need to do something on the command line in there run the runShell.sh script and it will connect you to the image that is specified. You will need to edit if you changed the name of your image, which i asusme you will :)
 	./runShell.sh
-
-
-
-COMMON DOCKER COMMANDS/TASKS
-
-BUILD: ./build.sh
-STOP Docker Container: docker stop <name from createContainer.sh>
-	i.e. docker stop hass
-START Docker Container: docker start <name from createContainer.sh>
-	i.e. docker start hass
-
-Connect to running container
-	./runShell.sh
-
-Remove broken container and rebuild container
-	docker stop hass
-	docker rm hass
-	./build
-Remove Dangling Docker Images no longer in use
-	docker rmi $(docker images -f dangling=true -q)
-
-List Docker Images
-	docker ps -a
-
-Remove Docker Image
-	docker rmi <imagename>
-
-START OVER AND REMOVE ALL DOCKER CONTAINERS AND IMAGES
-	docker rmi $(docker images -f dangling=true -q)
-	docker -f dangling=true -q
-	docker stop $(docker ps -a -q)
-	docker rm $(docker ps -a -q)
 
