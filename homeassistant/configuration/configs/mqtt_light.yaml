@@ -1,0 +1,13 @@
+###########################
+# MQTT LIGHT              #
+###########################
+- platform: mqtt  
+  name: "Basement Light"
+  state_topic: "wink/1/1"  
+  command_topic: "wink/1/1/set"  
+  brightness_state_topic: "wink/1/1"  
+  brightness_command_topic: "wink/1/1/set"
+  payload_on: "255"  
+  payload_off: "0" 
+  qos: 0 
+  retain: true

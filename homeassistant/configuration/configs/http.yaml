@@ -1,0 +1,4 @@
+  api_password: !secret ha_api_password
+  ssl_certificate: !secret ha_ssl_certificate
+  ssl_key: !secret ha_ssl_key
+  base_url: !secret ha_base_url

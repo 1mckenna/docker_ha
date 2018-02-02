@@ -1,0 +1,125 @@
+###########################
+# SENSORS                 #
+###########################
+- platform: template
+  sensors:  
+    basement_multisensor_motion:
+      friendly_name: 'Motion Detected?'
+      value_template: >-
+          {%- if is_state("sensor.basement_sensor_burglar", "0") -%}
+              No
+          {%- else -%}
+              Yes
+          {%- endif -%}
+    basement_multisensor_tamper:
+      friendly_name: 'Tampering Detected?'
+      value_template: >-
+          {%- if is_state("sensor.basement_sensor_burgler", "3") -%}
+              Yes
+          {%- else -%}
+              No
+          {%- endif -%}
+    basement_multisensor_batterylevel:
+      friendly_name: 'Battery Level'
+      unit_of_measurement: '%'
+      value_template: >-
+        {% if states.zwave.basement_sensor.attributes.battery_level > 100 %}
+            100
+        {% else %}
+            {{ states.zwave.basement_sensor.attributes.battery_level }}
+        {% endif %}
+    mainfloor_multisensor_motion:
+      friendly_name: 'Motion Detected?'
+      value_template: >-
+          {%- if is_state("sensor.main_floor_sensor_burglar", "0") -%}
+              No
+          {%- else -%}
+              Yes
+          {%- endif -%}
+    mainfloor_multisensor_tamper:
+      friendly_name: 'Tampering Detected?'
+      value_template: >-
+          {%- if is_state("sensor.main_floor_sensor_burgler", "3") -%}
+              Yes
+          {%- else -%}
+              No
+          {%- endif -%}
+    mainfloor_multisensor_batterylevel:
+      friendly_name: 'Battery Level'
+      unit_of_measurement: '%'
+      value_template: >-
+        {% if states.zwave.main_floor_sensor.attributes.battery_level > 100 %}
+            100
+        {% else %}
+            {{ states.zwave.main_floor_sensor.attributes.battery_level }}
+        {% endif %}
+    entryway_multisensor_motion:
+      friendly_name: 'Motion Detected?'
+      value_template: >-
+          {%- if is_state("sensor.entryway_sensor_burglar", "0") -%}
+              No
+          {%- else -%}
+              Yes
+          {%- endif -%}
+    entryway_multisensor_tamper:
+      friendly_name: 'Tampering Detected?'
+      value_template: >-
+          {%- if is_state("sensor.entryway_sensor_burgler", "3") -%}
+              Yes
+          {%- else -%}
+              No
+          {%- endif -%}
+    entryway_multisensor_batterylevel:
+      friendly_name: 'Battery Level'
+      unit_of_measurement: '%'
+      value_template: >-
+        {% if states.zwave.entryway_sensor.attributes.battery_level > 100 %}
+            100
+        {% else %}
+            {{ states.zwave.entryway_sensor.attributes.battery_level }}
+        {% endif %}
+    garage_multisensor_motion:
+      friendly_name: 'Motion Detected?'
+      value_template: >-
+          {%- if is_state("sensor.garage_sensor_burglar", "0") -%}
+              No
+          {%- else -%}
+              Yes
+          {%- endif -%}
+    garage_multisensor_tamper:
+      friendly_name: 'Tampering Detected?'
+      value_template: >-
+          {%- if is_state("sensor.garage_sensor_burgler", "3") -%}
+              Yes
+          {%- else -%}
+              No
+          {%- endif -%}
+    garage_multisensor_batterylevel:
+      friendly_name: 'Battery Level'
+      unit_of_measurement: '%'
+      value_template: >-
+        {% if states.zwave.garage_sensor.attributes.battery_level > 100 %}
+            100
+        {% else %}
+            {{ states.zwave.garage_sensor.attributes.battery_level }}
+        {% endif %}
+- platform: wunderground
+  api_key: !secret wu_api_key
+  monitored_conditions:
+    - weather_1d
+    - weather_1n
+    - weather_2d
+    - weather_2n
+    - temp_high_1d_f
+    - temp_f
+    - temp_low_1d_f
+    - precip_1d
+    - precip_1d_in
+    - wind_mph
+    - wind_1d_mph
+    - alerts
+- platform: fail2ban
+  jails:
+    - hass-iptables
+    - ssh   
+  file_path: /etc/fail2ban/log/fail2ban.log

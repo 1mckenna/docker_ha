@@ -1,0 +1,14 @@
+[hass-iptables]
+enabled = true
+filter = hass
+action = iptables-allports[name=HASS]
+logpath = /home/pi/homeassistant/configuration/home-assistant.log
+maxretry = 5
+
+[ssh]
+enabled  = true
+port     = ssh
+filter   = sshd
+logpath  = /var/log/auth.log
+maxretry = 3
+action = iptables-allports

@@ -1,0 +1,72 @@
+homeassistant:
+  name: !secret haname
+  latitude: !secret latitude
+  longitude: !secret longitude
+  elevation: !secret elevation
+  unit_system: imperial
+  time_zone: America/Chicago
+  customize: !include configs/customize.yaml 
+
+# Show links to resources in log and frontend
+#introduction:
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+#Load HTTP Config
+http: !include configs/http.yaml
+
+#Load Notify Config
+notify: !include configs/notify.yaml
+
+#Load MQTT Config
+mqtt: !include configs/mqtt.yaml
+
+#Load Zwave
+zwave: !include configs/zwave.yaml
+
+#LOAD Automations
+automation: !include configs/automations.yaml
+
+#Load Google Assistant
+google_assistant: !include configs/gassistant.yaml
+
+# Checks for available updates
+updater:
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time.
+history:
+
+# View all events in a logbook
+logbook:
+
+# Track the sun
+sun:
+
+# Text to speech
+tts:
+  platform: google
+
+#Load Logging Config
+logger: !include configs/logging.yaml
+
+#Load Media Config
+media_player: !include configs/media.yaml
+
+#Load MQTT Light Config
+light: !include configs/mqtt_light.yaml 
+
+#Load Sensor Config
+sensor: !include configs/sensors.yaml
+
+#Load HA Groups
+group: !include configs/groups.yaml

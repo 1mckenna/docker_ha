@@ -4,24 +4,23 @@ Home Assistant Docker Container for Raspi
 1. On your clean install RPI (i used raspbian) 
    Install docker using this command
 	curl -sSL https://get.docker.com | sh
+2. Clone the docker_ha repo
+   cd /home/pi && git clone https://github.com/1mckenna/docker_ha.git
 
-2. Run the fail2ban setup script prior to running the docker build this will get fail2ban installed and the correct configs in place.
-   This script is located at /home/pi/homeassistant/configuration/ban/setupF2B.sh
+   /home/pi/docker_ha/homeassistant/configuration will be the shared folder structure between all the HA contianers and where your confs will live. This is the only part of the docker conatiner that will live on when its restarted. Copy your confs out to here now. If you are using mqtt, copy the mosquitto_pwfile from your working system so you dont have to run the command then save it later and copy it into the configuration directory
 
-3. Get an SSL Cert for your HA Instance by running the following  
-   /home/pi/homeassistant/configuration/certbot/certbot-auto certonly --standalone --preferred-challenges http-01 --email <email address> -d YOURDOMAIN.duckdns.org
+3. Run the fail2ban setup script prior to running the docker build this will get fail2ban installed and the correct configs in place.
+   This script is located at /home/pi/docker_ha/homeassistant/configuration/ban/setupF2B.sh
 
-4. After you have run that command add this to the root accounts crontab to auto renew the cert
-   30 2 * * 1 /home/pi/homeassistant/configuration/certbot/certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges http-01
+4. Get an SSL Cert for your HA Instance by running the following  
+   /home/pi/docker_ha/homeassistant/configuration/certbot/certbot-auto certonly --standalone --preferred-challenges http-01 --email <email address> -d YOURDOMAIN.duckdns.org
 
-5. In the /home/pi folder run
-	mkdir -p /home/pi/homeassistant/configuration
-
-	This will be the shared folder structure between all the HA contianers and where your confs will live. This is the only part of the docker conatiner that will live on when its restarted. Copy your confs out to here now. If you are not using mqtt you can del the mosquitto.conf and the mosquitto_pwfile. If you are using mqtt, copy the pwfile from your working system so you dont have to run the command then save it later. 
+5. After you have run that command add this to the root accounts crontab to auto renew the cert
+   30 2 * * 1 /home/pi/docker_ha/homeassistant/configuration/certbot/certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges http-01
 
 6. Open build.sh and edit line 
 	#4 to change it to your name
-	#40 - Here is where you will want to change the startup script to launch the HA stuff you are using. I am using just mqtt, so i start that before HA and run update DB so i can be lazy and use locate later on
+	#40 - Here is where you will want to change the startup script to launch the HA stuff you are using. I am using just mqtt, so i start that before HA and run update DB so I can be lazy and use locate later on
 	#67 add in other sys utils you need/use here to be installed via APT
 
 If you have any other files that you need copied into the build image so it will exist outside of the conf dir, then use the COPY command as seen on lines #98 and #99.   
