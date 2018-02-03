@@ -11,13 +11,13 @@ Follow the below steps to get docker and Home Assistant setup on your Raspberry 
    Copy your confs out to here now. If you are using mqtt, copy the mosquitto_pwfile from your working system so you dont have to run the command then save it later and copy it into the configuration directory
 
 3. Run the fail2ban setup script prior to running the docker build this will get fail2ban installed and the correct configs in place.
-  - ```./home/pi/docker_ha/homeassistant/configuration/ban/setupF2B.sh```
+   - ```./home/pi/docker_ha/homeassistant/configuration/ban/setupF2B.sh```
 
 4. Get an SSL Cert for your HA Instance by running the following  
    - ```/home/pi/docker_ha/homeassistant/configuration/certbot/certbot-auto certonly --standalone --preferred-challenges http-01 --email <email address> -d YOURDOMAIN.duckdns.org```
 
 5. After you have run that command add this to the root accounts crontab to auto renew the cert
-  - ```30 2 * * 1 /home/pi/docker_ha/homeassistant/configuration/certbot/certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges http-01```
+   - ```30 2 * * 1 /home/pi/docker_ha/homeassistant/configuration/certbot/certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges http-01```
 
 6. Open **build.sh** and edit the following lines 
     - **Line 4:** to change it to your name
