@@ -37,3 +37,54 @@ If you have any other files that you need copied into the build image so it will
 9. As soon as you run createContainer docker will start the image and HA will start and bind to the rpi network address and pass the traffic normally. If you need to do something on the command line in there run the runShell.sh script and it will connect you to the image that is specified. You will need to edit if you changed the name of your image, which i asusme you will :)
 	./runShell.sh
 
+
+SECRETS
+
+All config secrets have been externalized by putting them into a secrets.yaml file in the /home/pi/docker_ha/configuration directory
+
+Below you can see the contents of my secrets.yaml with the sensitive info removed for you to be able to easily recreate your own
+
+# START OF secrets.yaml (/home/pi/docker_ha/configuration/secrets.yaml)
+
+#MAIN CONFIG FILE SECRETS (configuration.yaml)
+haname:
+latitude:
+longitude:
+elevation:
+
+#HOME ASSISTANT HTTP SETTINGS (config/http.yaml)
+ha_api_password: 
+ha_ssl_certificate:
+ha_ssl_key: 
+ha_base_url:
+
+# MEDIA DEVICE SETTINGS (config/media.yaml)
+onkyo_host:
+samsung_host:
+samsung_port:
+samsung_mac:
+
+# MQTT SERVER SETTINGS (config/mqtt.yaml
+mqtt_username: 
+mqtt_password: 
+
+#GOOGLE ASSISTANT SECRETS (config/gassistant.yaml)
+ga_project_id:
+ga_client_id: 
+ga_access_token:  
+ga_agent_user_id:
+ga_api_key:
+
+#GOOGLE CLOUD NOTIFICATION SETTINGS (config/notify.yaml)
+gcm_api_key:
+gcm_sender_id: 
+
+#ZWAVE SECURITY KEY SETTING (config/zwave.yaml)
+zwave_key:
+
+#SENSOR SETTINGS (config/sensors.yaml)
+wu_api_key:
+
+# PHONE DETAILS (various configs)
+adminPhone: 
+# END OF secrets.yaml (/home/pi/docker_ha/configuration/secrets.yaml)
