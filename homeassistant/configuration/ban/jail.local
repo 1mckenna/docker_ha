@@ -2,8 +2,9 @@
 enabled = true
 filter = hass
 action = iptables-allports[name=HASS]
-logpath = /home/pi/homeassistant/configuration/home-assistant.log
-maxretry = 5
+logpath = /home/pi/docker_ha/homeassistant/configuration/home-assistant.log
+maxretry = 3
+bantime = 86400
 
 [ssh]
 enabled  = true
@@ -12,3 +13,5 @@ filter   = sshd
 logpath  = /var/log/auth.log
 maxretry = 3
 action = iptables-allports
+mexretry = 3
+bantime = 86400
