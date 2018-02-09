@@ -34,6 +34,12 @@ if [ "$HA_LATEST" == true ] && [ "$HA_VERSION" == "$_HA_VERSION" ]; then
    exit 0
 fi
 
+
+## #####################################################################
+## Removing Deps folder to ensure the latest stuff gets installed
+## #####################################################################
+sudo rm -rf homeassistant/configuration/deps/*
+
 ## #####################################################################
 ## Generate the start.sh script
 ## #####################################################################
@@ -44,6 +50,10 @@ echo "Updating locate DB"
 updatedb
 echo "Starting Mosquitto"
 /etc/init.d/mosquitto start
+echo "Updating Meta Tags if needed"
+/config/build/setGCMMetaTag.sh
+echo "Running Zwave setup"
+/config/build/setupZW.sh
 echo "Starting HA"
 python3 -m homeassistant --config /config
 exec "\$@"
@@ -98,8 +108,12 @@ VOLUME /config
 # Install Home Assistant
 ###################################
 RUN pip3 install homeassistant==$HA_VERSION aiohttp_cors websocket-client sqlalchemy pyRFXTRX cython wheel six 'PyDispatcher>=2.0.5'
-COPY homeassistant/configuration/zwave/options.xml /config/deps/lib/python3.5/site-packages/python_openzwave/ozw_config/options.xml
-COPY homeassistant/configuration/zwave/GC-TBZ48.xml /config/deps/lib/python3.5/site-packages/python_openzwave/ozw_config/linear/GC-TBZ48.xml
+
+###################################
+# Install Dev Branch of OpenZWave
+###################################
+RUN rm -f /config/deps/lib/python3.5/site-packages/libopenzwave.cpython-35m-arm-linux*.so && \
+pip3 install 'python_openzwave' --install-option="--flavor=ozwdev"
 
 ###################################
 # SET Emulated HUE  Permissions
@@ -114,11 +128,6 @@ RUN rm /etc/mosquitto/mosquitto.conf && \
 	adduser mosquitto --system --group && \
 	touch /var/run/mosquitto.pid && \
 	updatedb
-
-###################################
-#Replace the meta tax in the index.html with the one needed for Google Cloud Messaging
-###################################
-RUN sh homeassistant/configuration/build/setGCMMetaTag.sh
 
 ###################################
 # Add Start Script to Launch Services on Container Start
