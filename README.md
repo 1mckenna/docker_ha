@@ -1,7 +1,7 @@
 # Home Assistant Docker Container for Raspi (docker_ha)
 Follow the below steps to get docker and Home Assistant setup on your Raspberry Pi
 
-1. On your clean install RPI (I used raspbian) install docker using this command
+1. On your clean RPI (raspbian stretch python3.5) install docker using this command
    - ```curl -sSL https://get.docker.com | sh```
 2. Clone the docker_ha repo
    - ```cd /home/pi && git clone https://github.com/1mckenna/docker_ha.git```
@@ -23,7 +23,7 @@ Follow the below steps to get docker and Home Assistant setup on your Raspberry 
     - **Line 4:** to change it to your name
     - **Line 40:** Here is where you will want to change the startup script to launch the HA stuff you are using. I am using just mqtt, so i start that before HA and run update DB so I can be lazy and use locate later on
      - **Line 67:** add in other sys utils you need/use here to be installed via APT
-     - If you have any other files that you need copied into the build image so it will exist outside of the conf dir, then use the COPY command as seen on **lines 98 and 99**.   
+     - If you have any other files that you need copied into the build image so it will exist outside of the conf dir, then use the COPY command.
        
 7. Once finished editing the build.sh script you can kick it off to go ahead and build the docker image
      - ```./build.sh```
