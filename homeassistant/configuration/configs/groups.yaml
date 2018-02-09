@@ -13,6 +13,7 @@ entryway:
   name: Entryway
   view: yes
   entities:
+    - switch.porch_light_switch      
     - group.entryway_sensor_group
     - media_player.front_entryway_home
 
@@ -67,8 +68,10 @@ climate_sensor_group:
   control: hidden
   view: no
   entities:
+    - climate.thermostat_away_heating
     - climate.thermostat_cooling_1
-    - climate.thermostat_heating_1
+    - climate.thermostat_cooling_econ
+    - climate.thermostat_unused_3
 
 room_climate_group:
   name: Room Climate

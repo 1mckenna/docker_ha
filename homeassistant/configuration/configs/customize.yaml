@@ -12,6 +12,8 @@
     hidden: true
   zwave.guest_room_light:
     hidden: true
+  zwave.porch_light:
+    hidden: true
   #zwave.basement_sensor:
   #  hidden: true
   #zwave.entryway_sensor:
@@ -130,10 +132,14 @@
     friendly_name: Garage Temperature
   sensor.thermostat_temperature:
     hidden: true
+  climate.thermostat_away_heating:
+    friendly_name: Away Heating
   climate.thermostat_cooling_1:
-    friendly_name: Thermostat Cooling
-  climate.thermostat_heating_1:
-    friendly_name: Thermostat Heating
+    friendly_name: Cooling
+  climate.thermostat_cooling_econ:
+    friendly_name: Away Cooling
+  climate.thermostat_unused_3:
+    friendly_name: Heating
   switch.light_switch:
     friendly_name: Bedroom Light Switch
   switch.guest_room_light_switch:
