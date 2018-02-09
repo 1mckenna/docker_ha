@@ -9,8 +9,8 @@
 ###################################################################################################################
 #THESE TWO FILES SHOULD BE THE LOCATION OF YOUR INDEX.HTML file in the hass_frontend dir
 ###################################################################################################################
-FILE1="/home/pi/docker_ha/homeassistant/configuration/deps/lib/python3.5/site-packages/hass_frontend/index.html"
-FILE2="/home/pi/docker_ha/homeassistant/configuration/deps/lib/python3.5/site-packages/hass_frontend_es5/index.html"
+FILE1="/config/deps/lib/python3.5/site-packages/hass_frontend/index.html"
+FILE2="/config/deps/lib/python3.5/site-packages/hass_frontend_es5/index.html"
 ###################################################################################################################
 
 ###################################################################################################################
@@ -18,7 +18,7 @@ FILE2="/home/pi/docker_ha/homeassistant/configuration/deps/lib/python3.5/site-pa
 #SET THE META TAG CONTENT VALUE WITH WHAT GOOGLE PROVIDES
 ###################################################################################################################
 ###################################################################################################################
-. `pwd`/\contentstring
+. /config/build/contentstring
 
 
 ###################################################################################################################
@@ -26,5 +26,5 @@ FILE2="/home/pi/docker_ha/homeassistant/configuration/deps/lib/python3.5/site-pa
 #DO THE FIND AND REPLACES NOW FOR EACH FILE
 ###################################################################################################################
 ###################################################################################################################
-sed -i -e "s|<meta charset=\"utf-8\">|<meta name=\"google-site-verification\" content=\"$CONTENTSTRING\" />|g" ${FILE1}
-sed -i -e "s|<meta charset=\"utf-8\">|<meta name=\"google-site-verification\" content=\"$CONTENTSTRING\" />|g" ${FILE2}
+sed -i -e "s|<meta charset=\"utf-8\">|<meta name=\"google-site-verification\" content=\"$CONTENTSTRING\" />|g" ${FILE1} || true
+sed -i -e "s|<meta charset=\"utf-8\">|<meta name=\"google-site-verification\" content=\"$CONTENTSTRING\" />|g" ${FILE2} || true
