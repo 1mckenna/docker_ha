@@ -1,3 +1,8 @@
 #!/bin/sh
+#Change HA Zwave __init__.py to not install old version of OZW
+sed -i "s/'python_openzwave==.*'//" /usr/local/lib/python3.5/dist-packages/homeassistant/components/zwave/__init__.py || true
 #Copy the ZWAVE options.xml to copy network key over
-cp /config/zwave/options.xml /config/deps/lib/python3.5/site-packages/python_openzwave/ozw_config/options.xml
+ln -s /config/zwave/options.xml /usr/local/lib/python3.5/dist-packages/python_openzwave/ozw_config/options.xml || true
+#Create symlink for OZW Config file
+LINKNAME=`ls -1 /config/ozwcache_*.xml | awk -F"/" '{print $NF}'`
+ln -s /config/${LINKNAME} /usr/local/lib/python3.5/dist-packages/python_openzwave/ozw_config/${LINKNAME} || true
