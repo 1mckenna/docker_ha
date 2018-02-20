@@ -1,0 +1,75 @@
+binary_sensor.sensor:
+  platform: zwave
+  unique_id: 2-38535184
+sensor.zooz_zse40_4in1_sensor_temperature:
+  platform: zwave
+  unique_id: 2-281475015262226
+sensor.zooz_zse40_4in1_sensor_luminance:
+  platform: zwave
+  unique_id: 2-844424968683538
+sensor.zooz_zse40_4in1_sensor_relative_humidity:
+  platform: zwave
+  unique_id: 2-1407374922104850
+sensor.zooz_zse40_4in1_sensor_sourcenodeid:
+  platform: zwave
+  unique_id: 2-562949993021457
+sensor.zooz_zse40_4in1_sensor_burglar:
+  platform: zwave
+  unique_id: 2-2814749806706708
+sensor.zooz_zse40_4in1_sensor_power_management:
+  platform: zwave
+  unique_id: 2-3096224783417364
+sensor.zooz_zse40_4in1_sensor_emergency:
+  platform: zwave
+  unique_id: 2-3659174736838676
+sensor.zooz_zse40_4in1_sensor_appliance:
+  platform: zwave
+  unique_id: 2-4222124690259988
+switch.switch:
+  platform: zwave
+  unique_id: 3-55132176
+switch.switch_2:
+  platform: zwave
+  unique_id: 4-71909392
+light.level:
+  platform: zwave
+  unique_id: 5-88702993
+fan.bedroom_fan_level:
+  platform: zwave
+  unique_id: 5-88702993
+switch.switch_3:
+  platform: zwave
+  unique_id: 6-105463824
+switch.switch_4:
+  platform: zwave
+  unique_id: 7-122241040
+switch.switch_5:
+  platform: zwave
+  unique_id: 8-139018256
+climate.linear_gctbz48_battery_powered_zwave_thermostat_heating_1:
+  platform: zwave
+  unique_id: 9-281475132997650
+climate.linear_gctbz48_battery_powered_zwave_thermostat_cooling_1:
+  platform: zwave
+  unique_id: 9-562950109708306
+sensor.linear_gctbz48_battery_powered_zwave_thermostat_temperature:
+  platform: zwave
+  unique_id: 9-281475132702738
+cover.garage_door_barrier_state_label:
+  platform: zwave
+  unique_id: 10-281475150348308
+sensor.garage_door_sourcenodeid:
+  platform: zwave
+  unique_id: 10-562950127239185
+sensor.garage_door_access_control:
+  platform: zwave
+  unique_id: 10-2533274964213780
+sensor.garage_door_burglar:
+  platform: zwave
+  unique_id: 10-2814749940924436
+sensor.zooz_zse40_4in1_sensor_system:
+  platform: zwave
+  unique_id: 2-3377699760128020
+sensor.zooz_zse40_4in1_sensor_clock:
+  platform: zwave
+  unique_id: 2-3940649713549332
