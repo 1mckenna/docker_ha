@@ -11,10 +11,7 @@ homeassistant/configuration/gactions/
 homeassistant/configuration/.uuid
 homeassistant/configuration/.HA_VERSION
 homeassistant/configuration/build/contentstring
-homeassistant/configuration/zwave/manufacturer_specific.xml
-homeassistant/configuration/zwave/options.xml
-homeassistant/configuration/zwave/ozwcache_0xeea3b7f6.xml
-homeassistant/configuration/zwave/zwcfg_0xeea3b7f6.xml
+homeassistant/configuration/zwave/*.xml
 dockerNotes
 start.sh
 Dockerfile
