@@ -112,14 +112,8 @@ RUN pip3 install homeassistant==$HA_VERSION aiohttp_cors websocket-client sqlalc
 ###################################
 # Install Dev Branch of OpenZWave
 ###################################
-#RUN rm -f /config/deps/lib/python3.5/site-packages/libopenzwave.cpython-35m-arm-linux*.so && \
-#pip3 install 'python_openzwave' --install-option="--flavor=ozwdev"
 RUN rm -f /config/deps/lib/python3.5/site-packages/libopenzwave.cpython-35m-arm-linux*.so && \
-       	cd /root && \
-	git clone https://github.com/bitdog-io/open-zwave.git && \
-	cd open-zwave && \
-	make
-RUN export LOCAL_OPENZWAVE=/root/open-zwave && pip3 install 'python_openzwave' --install-option="--flavor=dev" -b /usr/local/lib/python3.5/dist-packages/python_openzwave
+pip3 install 'python_openzwave' --install-option="--flavor=ozwdev"
 
 ###################################
 # SET Emulated HUE  Permissions
@@ -150,4 +144,16 @@ log "Building $DOCKER_IMAGE_NAME:$HA_VERSION"
 ## Force-pull the base image
 docker pull resin/rpi-raspbian
 docker build -t $DOCKER_IMAGE_NAME:$HA_VERSION .
+
+#log "Pushing $DOCKER_IMAGE_NAME:$HA_VERSION"
+#docker push $DOCKER_IMAGE_NAME:$HA_VERSION
+
+#if [ "$HA_LATEST" = true ]; then
+#   log "Tagging $DOCKER_IMAGE_NAME:$HA_VERSION with latest"
+#   docker tag $DOCKER_IMAGE_NAME:$HA_VERSION $DOCKER_IMAGE_NAME:latest
+#   log "Pushing $DOCKER_IMAGE_NAME:latest"
+#   docker push $DOCKER_IMAGE_NAME:latest
+#   echo $HA_VERSION > /var/log/home-assistant/docker-build.version
+#fi
+
 log ">>--------------------->>"

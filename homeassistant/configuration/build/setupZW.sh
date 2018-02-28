@@ -5,5 +5,5 @@ sed -i "s/'python_openzwave==.*'//" /usr/local/lib/python3.5/dist-packages/homea
 rm /usr/local/lib/python3.5/dist-packages/python_openzwave/ozw_config/options.xml || true
 ln -s /config/zwave/options.xml /usr/local/lib/python3.5/dist-packages/python_openzwave/ozw_config/options.xml || true
 #Create symlink for OZW Config file
-LINKNAME=`ls -1 /config/ozwcache_*.xml | awk -F"/" '{print $NF}'`
+LINKNAME=`ls -1 /config/zwcfg_*.xml | awk -F"/" '{print $NF}'`
 ln -s /config/${LINKNAME} /usr/local/lib/python3.5/dist-packages/python_openzwave/ozw_config/${LINKNAME} || true

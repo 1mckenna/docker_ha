@@ -22,7 +22,7 @@ bedroom:
   view: yes
   entities:
     - switch.light_switch
-    - fan.fan_level
+    - fan.bedroom_fan_level
 
 guestroom:
   name: Guest Room
@@ -47,8 +47,8 @@ mainlevel:
   control: hidden
   view: yes
   entities:
-    - switch.outlet1_switch
-    - switch.outlet2_switch
+    - switch.outlet_1_switch
+    - switch.outlet_2_switch
     - group.mainfloor_sensor_group
     - group.entryway_sensor_group
     - group.garage_sensor_group
@@ -68,10 +68,8 @@ climate_sensor_group:
   control: hidden
   view: no
   entities:
-    - climate.thermostat_away_heating
+    - climate.thermostat_heating_1
     - climate.thermostat_cooling_1
-    - climate.thermostat_cooling_econ
-    - climate.thermostat_unused_3
 
 room_climate_group:
   name: Room Climate
