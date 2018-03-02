@@ -38,7 +38,7 @@ fi
 ## #####################################################################
 ## Removing Deps folder to ensure the latest stuff gets installed
 ## #####################################################################
-sudo rm -rf homeassistant/configuration/deps/*
+#sudo rm -rf homeassistant/configuration/deps/*
 
 ## #####################################################################
 ## Generate the start.sh script
