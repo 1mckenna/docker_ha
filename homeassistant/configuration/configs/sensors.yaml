@@ -19,15 +19,6 @@
           {%- else -%}
               No
           {%- endif -%}
-    basement_multisensor_batterylevel:
-      friendly_name: 'Battery Level'
-      unit_of_measurement: '%'
-      value_template: >-
-        {% if states.zwave.basement_sensor.attributes.battery_level > 100 %}
-            100
-        {% else %}
-            {{ states.zwave.basement_sensor.attributes.battery_level }}
-        {% endif %}
     mainfloor_multisensor_motion:
       friendly_name: 'Motion Detected?'
       value_template: >-
@@ -44,15 +35,6 @@
           {%- else -%}
               No
           {%- endif -%}
-    mainfloor_multisensor_batterylevel:
-      friendly_name: 'Battery Level'
-      unit_of_measurement: '%'
-      value_template: >-
-        {% if states.zwave.main_floor_sensor.attributes.battery_level > 100 %}
-            100
-        {% else %}
-            {{ states.zwave.main_floor_sensor.attributes.battery_level }}
-        {% endif %}
     garage_multisensor_motion:
       friendly_name: 'Motion Detected?'
       value_template: >-
@@ -69,15 +51,6 @@
           {%- else -%}
               No
           {%- endif -%}
-    garage_multisensor_batterylevel:
-      friendly_name: 'Battery Level'
-      unit_of_measurement: '%'
-      value_template: >-
-        {% if states.zwave.garage_sensor.attributes.battery_level > 100 %}
-            100
-        {% else %}
-            {{ states.zwave.garage_sensor.attributes.battery_level }}
-        {% endif %}
     entryway_multisensor_motion:
       friendly_name: 'Motion Detected?'
       value_template: >-
@@ -94,15 +67,6 @@
           {%- else -%}
               No
           {%- endif -%}
-    entryway_multisensor_batterylevel:
-      friendly_name: 'Battery Level'
-      unit_of_measurement: '%'
-      value_template: >-
-        {% if states.zwave.entryway_sensor.attributes.battery_level > 100 %}
-            100
-        {% else %}
-            {{ states.zwave.entryway_sensor.attributes.battery_level }}
-        {% endif %}
 - platform: wunderground
   api_key: !secret wu_api_key
   monitored_conditions:

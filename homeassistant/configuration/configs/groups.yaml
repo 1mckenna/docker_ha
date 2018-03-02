@@ -1,13 +1,10 @@
 default_view:
-  view: no
+  view: yes
   icon: mdi:home 
   entities:
-    - group.entryway
-    - group.bedroom
-    - group.guestroom
-    - group.basement
-    - group.mainlevel
-    - group.climate
+    - group.all_switches
+    - group.all_fans
+    - group.all_covers
 
 entryway:
   name: Entryway
@@ -17,11 +14,18 @@ entryway:
     - group.entryway_sensor_group
     - media_player.front_entryway_home
 
+garage:
+  name: Garage
+  view: yes
+  entities:
+    - group.garage_sensor_group
+    - cover.garage_door_barrier_state_label
+
 bedroom:
   name: Bedroom
   view: yes
   entities:
-    - switch.light_switch
+    - switch.bedroom_light_switch
     - fan.bedroom_fan_level
 
 guestroom:
@@ -51,7 +55,6 @@ mainlevel:
     - switch.outlet_2_switch
     - group.mainfloor_sensor_group
     - group.entryway_sensor_group
-    - group.garage_sensor_group
 
 climate:
   name: Climate
@@ -62,6 +65,44 @@ climate:
     - group.climate_sensor_group
     - group.weather_overview
     - group.room_climate_group
+
+zwave:
+  name: ZWave
+  control: hidden
+  view: yes
+  entities:
+    - zwave.aeotec_zw090_zstick_gen5_us
+    - zwave.bedroom_fan
+    - zwave.bedroom_light
+    - zwave.outlet_1
+    - zwave.outlet_2
+    - zwave.thermostat
+    - zwave.guest_room_light
+    - zwave.porch_light
+    - zwave.basement_sensor
+    - zwave.entryway_sensor
+    - zwave.garage_sensor
+    - zwave.garage_door
+    - zwave.main_floor_sensor
+    - group.battery_sensor_group
+
+automations:
+  name: automations
+  view: yes
+  entities:
+    - group.battery_alert
+    - automation.ssl_expiry_notification
+
+battery_sensor_group:
+  name: Battery Levels
+  control: hidden
+  view: no
+  entities:
+    - sensor.basement_sensor_battery
+    - sensor.entryway_sensor_battery
+    - sensor.garage_sensor_battery
+    - sensor.main_floor_sensor_battery
+    - sensor.thermostat_battery
 
 climate_sensor_group:
   name: HVAC

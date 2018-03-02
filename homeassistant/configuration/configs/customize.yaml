@@ -1,29 +1,3 @@
-  zwave.aeotec_zw090_zstick_gen5_us:
-     hidden: true
-  zwave.bedroom_fan:
-    hidden: true
-  zwave.bedroom_light:
-    hidden: true
-  zwave.outlet_1:
-    hidden: true
-  zwave.outlet_2:
-    hidden: true
-  zwave.thermostat:
-    hidden: true
-  zwave.guest_room_light:
-    hidden: true
-  zwave.porch_light:
-    hidden: true
-  zwave.basement_sensor:
-    hidden: true
-  zwave.entryway_sensor:
-    hidden: true
-  zwave.garage_sensor:
-    hidden: true
-  zwave.garage_door:
-    hidden: true
-  zwave.main_floor_sensor:
-    hidden: true
   sensor.fail2ban_ssh:
     hidden: true
   sensor.fail2ban_hassiptables:
@@ -90,6 +64,16 @@
     hidden: true
   sensor.garage_sensor_appliance:
     hidden: true
+  sensor.garage_door_access_control:
+    hidden: true
+  sensor.garage_door_alarm_level:
+    hidden: true
+  sensor.garage_door_alarm_type:
+    hidden: true
+  sensor.garage_door_burglar:
+    hidden: true
+  sensor.garage_door_sourcenodeid:
+    hidden: true
   binary_sensor.entryway_sensor_sensor:
     hidden: true
   sensor.entryway_sensor_temperature:
@@ -134,3 +118,12 @@
     friendly_name: Bedroom Fan
   cover.garage_door_barrier_state_label:
     friendly_name: Garage Door
+  group.all_switches:
+    hidden: false
+    friendly_name: Switches
+  group.all_covers:
+    hidden: false
+    friendly_name: Garage Door Opener
+  group.all_fans:
+    hidden: false
+    friendly_name: Fans       
