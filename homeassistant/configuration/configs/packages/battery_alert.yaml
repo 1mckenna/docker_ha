@@ -135,6 +135,7 @@ homeassistant:
       <<: *customize
       friendly_name: "Battery Sensor from battery numeric Attribute"
       icon: mdi:battery-alert
+      initial_state: 'on'
 
 ################################################
 ## Group
@@ -164,7 +165,7 @@ input_number:
     mode: slider
     min: -1
     max: 100
-    # initial: 40
+    initial: 40
 
   battery_alert_threshold_min:
     name: "Min Alert Threshold"
@@ -172,7 +173,7 @@ input_number:
     mode: slider
     min: -1
     max: 100
-    # initial: -1
+    initial: -1
 
 ################################################
 ## Automation
@@ -180,6 +181,7 @@ input_number:
 
 automation:
 - alias: battery_notification
+  initial_state: 'on'
   trigger:
     - platform: time
       minutes: '/15'
@@ -248,6 +250,7 @@ automation:
           {{ battery_level() }}
 
 - alias: battery_notification_clear
+  initial_state: 'on'
   trigger:
     - platform: time
       minutes: '/15'
@@ -289,6 +292,7 @@ automation:
         notification_id: low-battery-alert
 
 - alias: battery_alert_html5
+  initial_state: 'on'
   trigger:
     - platform: time
       at: '06:00:00'
@@ -354,6 +358,7 @@ automation:
         target: !secret adminPhone
 
 - alias: battery_sensor_from_battery_level_attribute
+  initial_state: 'on'
   trigger:
     - platform: event
       event_type: state_changed
@@ -391,6 +396,7 @@ automation:
         payload: "{{ trigger.event.data.new_state.attributes.battery_level | int }}"
 
 - alias: battery_sensor_from_battery_attribute
+  initial_state: 'on'
   trigger:
     - platform: event
       event_type: state_changed
@@ -428,6 +434,7 @@ automation:
         payload: "{{ trigger.event.data.new_state.attributes.battery | int }}"
 
 - alias: battery_sensor_from_battery_numeric_attribute
+  initial_state: 'on'
   trigger:
     - platform: event
       event_type: state_changed

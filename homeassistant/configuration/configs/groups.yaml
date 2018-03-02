@@ -92,6 +92,7 @@ automations:
   entities:
     - group.battery_alert
     - automation.ssl_expiry_notification
+    - automation.notify_on_failed_login
 
 battery_sensor_group:
   name: Battery Levels
