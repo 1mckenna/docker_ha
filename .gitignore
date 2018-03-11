@@ -1,6 +1,7 @@
 homeassistant/configuration/secrets.yaml
 homeassistant/configuration/*.xml
 homeassistant/configuration/*.db
+homeassistant/configuration/*.db-*
 homeassistant/configuration/home-assistant.log
 homeassistant/configuration/deps/
 homeassistant/configuration/mosquitto_pwfile
