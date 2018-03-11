@@ -18,3 +18,23 @@
     host: !secret samsung_host
     port: !secret samsung_port
     mac: !secret samsung_mac
+
+  - platform: cast
+    name: "Entryway Google Home"
+    host: !secret gh_entryway
+  
+  - platform: cast
+    name: "Basement Google Home"
+    host: !secret gh_basement
+
+  - platform: cast
+    name: "Bathroom Google Home"
+    host: !secret gh_bathroom
+
+  - platform: cast
+    name: "Basement Chromecast"
+    host: !secret cc_basement
+
+  - platform: cast
+    name: "Main Floor Chromecast"
+    host: !secret cc_mainfloor

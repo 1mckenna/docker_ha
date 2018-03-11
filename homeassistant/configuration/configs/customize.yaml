@@ -126,4 +126,9 @@
     friendly_name: Garage Door Opener
   group.all_fans:
     hidden: false
-    friendly_name: Fans       
+    friendly_name: Fans
+  group.all_devices:
+    hidden: false
+    friendly_name: Users
+    #group.smoke_detectors:
+          #    hidden: false
