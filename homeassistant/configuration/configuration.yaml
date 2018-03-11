@@ -32,17 +32,17 @@ mqtt: !include configs/mqtt.yaml
 #Load Zwave
 zwave: !include configs/zwave.yaml
 
-#LOAD Automations
-automation: !include configs/automations.yaml
+#LOAD Manually created automations
+automation: !include_dir_merge_list configs/automations
 
 #Load Google Assistant
 google_assistant: !include configs/gassistant.yaml
 
+#Load Device Tracker
+device_tracker: !include configs/device_tracker.yaml
+
 # Checks for available updates
 updater:
-
-# Discover some devices automatically
-discovery:
 
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
