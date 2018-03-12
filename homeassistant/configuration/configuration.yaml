@@ -74,3 +74,13 @@ sensor: !include configs/sensors.yaml
 
 #Load HA Groups
 group: !include configs/groups.yaml
+
+#Load Scripts
+script: !include configs/script.yaml
+
+#LOAD SLIDERS
+input_number: !include configs/input_slider.yaml
+
+#LOAD INPUT BOOLEANS
+input_boolean: !include configs/input_boolean.yaml
+
