@@ -6,10 +6,6 @@ homeassistant:
   unit_system: imperial
   time_zone: America/Chicago
   customize: !include configs/customize.yaml 
-  packages: !include_dir_named configs/packages
-
-# Show links to resources in log and frontend
-#introduction:
 
 # Enables the frontend
 frontend:

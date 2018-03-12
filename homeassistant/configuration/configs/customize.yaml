@@ -130,6 +130,7 @@
   group.all_devices:
     hidden: false
     friendly_name: Users
+
 # Alarm clock sensors
   sensor.time:
     hidden: true
@@ -142,6 +143,7 @@
   sensor.alarm_clock_time:
     friendly_name: 'Alarm Clock Setting'
     icon: mdi:alarm
+
 # Alarm clock inputs
   input_number.alarm_clock_hour:
     friendly_name: 'Hour'
@@ -152,3 +154,27 @@
   input_boolean.alarm_clock_status:
     friendly_name: 'Alarm Clock Status'
     icon: mdi:alarm-check
+
+#Battery Alert
+  group.battery_alert:
+    friendly_name: "Battery Alert"
+    icon: mdi:steam
+  automation.battery_notification:
+    friendly_name: "Battery Notification"
+    icon: mdi:comment-alert-outline
+  automation.battery_notification_clear:
+    friendly_name: "Battery Notification Clear"
+    icon: mdi:comment-remove-outline
+  automation.battery_alert_html5:
+    friendly_name: "Battery HTML5 Notification"
+    icon: mdi:comment-alert-outline
+  automation.battery_sensor_from_battery_level_attribute:
+    friendly_name: "Battery Sensor from battery_level Attribute"
+    icon: mdi:battery-alert
+  automation.battery_sensor_from_battery_attribute:
+    friendly_name: "Battery Sensor from battery Attribute"
+    icon: mdi:battery-alert
+  automation.battery_sensor_from_battery_numeric_attribute:
+    friendly_name: "Battery Sensor from battery numeric Attribute"
+    icon: mdi:battery-alert
+    initial_state: 'on'
