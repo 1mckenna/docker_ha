@@ -1,0 +1,4 @@
+  #ALARM CLOCK
+  alarm_clock_status:
+    initial: on
+

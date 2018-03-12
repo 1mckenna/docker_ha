@@ -1,0 +1,4 @@
+  wake_up:
+    sequence:
+      - service: homeassistant.turn_on
+        entity_id: switch.bedroom_light_switch
