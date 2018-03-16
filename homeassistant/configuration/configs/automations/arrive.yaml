@@ -1,0 +1,33 @@
+- alias: 'Admin arrived home'
+  condition:
+  - condition: state
+    entity_id: device_tracker.galaxys8
+    state: 'not home'
+  trigger:
+    platform: state
+    entity_id: device_tracker.d463c65d0c74
+    from: 'not_home'
+    to: 'home'
+  action:
+    service: notify.notify
+    data_template:
+      message: >
+        {{ states.device_tracker.d463c65d0c74.attributes.friendly_name }} arrived home
+      target: !secret userPhone 
+- alias: 'User arrived home'
+  condition:
+  - condition: state
+    entity_id: device_tracker.d463c65d0c74
+    state: 'not home'
+  trigger:
+    platform: state
+    entity_id: device_tracker.galaxys8
+    from: 'not_home'
+    to: 'home'
+  action:
+    service: notify.notify
+    data_template:
+      message: >
+        {{ states.device_tracker.galaxys8.attributes.friendly_name }} arrived home
+      target: !secret adminPhone
+
