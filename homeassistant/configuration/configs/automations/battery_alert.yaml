@@ -1,5 +1,4 @@
 - alias: battery_notification
-  initial_state: 'on'
   trigger:
     - platform: time
       minutes: '/15'
@@ -68,7 +67,6 @@
           {{ battery_level() }}
 
 - alias: battery_notification_clear
-  initial_state: 'on'
   trigger:
     - platform: time
       minutes: '/15'
@@ -110,7 +108,6 @@
         notification_id: low-battery-alert
 
 - alias: battery_alert_html5
-  initial_state: 'on'
   trigger:
     - platform: time
       at: '06:00:00'
@@ -176,7 +173,6 @@
         target: !secret adminPhone
 
 - alias: battery_sensor_from_battery_level_attribute
-  initial_state: 'on'
   trigger:
     - platform: event
       event_type: state_changed
@@ -214,7 +210,6 @@
         payload: "{{ trigger.event.data.new_state.attributes.battery_level | int }}"
 
 - alias: battery_sensor_from_battery_attribute
-  initial_state: 'on'
   trigger:
     - platform: event
       event_type: state_changed
@@ -252,7 +247,6 @@
         payload: "{{ trigger.event.data.new_state.attributes.battery | int }}"
 
 - alias: battery_sensor_from_battery_numeric_attribute
-  initial_state: 'on'
   trigger:
     - platform: event
       event_type: state_changed
