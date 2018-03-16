@@ -29,7 +29,10 @@ mqtt: !include configs/mqtt.yaml
 zwave: !include configs/zwave.yaml
 
 #LOAD Manually created automations
-automation: !include_dir_merge_list configs/automations
+automation old: !include_dir_merge_list configs/automations
+
+#LOAD Automations from editor
+automation: !include configs/automations.yaml
 
 #Load Google Assistant
 google_assistant: !include configs/gassistant.yaml
@@ -72,7 +75,7 @@ sensor: !include configs/sensors.yaml
 group: !include configs/groups.yaml
 
 #Load Scripts
-script: !include configs/script.yaml
+script: !include configs/scripts.yaml
 
 #LOAD SLIDERS
 input_number: !include configs/input_slider.yaml
