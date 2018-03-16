@@ -4,10 +4,10 @@
     entity_id: cover.garage_door_barrier_state_label
     state: 'open'
     repeat:
-      - 15
+      - 5
       - 30
       - 60
     can_acknowledge: true
-    skip_first: false
+    skip_first: true
     notifiers:
       - admin_phone
