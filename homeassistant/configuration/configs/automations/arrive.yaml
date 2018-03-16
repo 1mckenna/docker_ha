@@ -1,8 +1,8 @@
 - alias: 'Admin arrived home'
   condition:
-  - condition: state
-    entity_id: device_tracker.galaxys8
-    state: 'not home'
+   - condition: state
+     entity_id: device_tracker.galaxys8
+     state: 'not_home'
   trigger:
     platform: state
     entity_id: device_tracker.d463c65d0c74
@@ -16,9 +16,9 @@
       target: !secret userPhone 
 - alias: 'User arrived home'
   condition:
-  - condition: state
-    entity_id: device_tracker.d463c65d0c74
-    state: 'not home'
+    - condition: state
+      entity_id: device_tracker.d463c65d0c74
+      state: 'not_home'
   trigger:
     platform: state
     entity_id: device_tracker.galaxys8
