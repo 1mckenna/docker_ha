@@ -17,6 +17,8 @@ homeassistant/configuration/build/asus_pk
 homeassistant/configuration/configs/device_tracker.yaml
 homeassistant/configuration/known_devices.yaml
 homeassistant/configuration/entity_registry.yaml
+homeassistant/configuration/tts/*
+homeassistant/configuration/automations.yaml
 dockerNotes
 start.sh
 Dockerfile

@@ -69,6 +69,14 @@ climate:
     - group.weather_overview
     - group.room_climate_group
 
+#Plants View
+Plants:
+  name: Plants
+  control: hidden
+  view: yes
+  entities:
+    - group.marilyn_plant_group
+
 zwave:
   name: ZWave
   control: hidden
@@ -100,6 +108,7 @@ automations:
     - automation.notify_on_failed_login
     - automation.admin_arrived_home
     - automation.user_arrived_home
+    - automation.away_mode
 
 battery_sensor_group:
   name: Battery Levels
@@ -229,7 +238,7 @@ alarm_clock:
     - input_number.alarm_clock_hour
     - input_number.alarm_clock_minute
     - input_boolean.alarm_clock_status
-#Battert Alert
+#Battery Alert
 battery_alert:
   control: hidden
   entities:
@@ -241,3 +250,13 @@ battery_alert:
     - automation.battery_sensor_from_battery_level_attribute
     - automation.battery_sensor_from_battery_attribute
     - automation.battery_sensor_from_battery_numeric_attribute
+
+#MARILYN PLANT STATUS (Plant0)
+marilyn_plant_group:
+  name: Marilyn
+  control: hidden
+  view: no
+  entities:
+    - sensor.plant_name 
+    - sensor.marilyn_moisture
+    - sensor.marilyn_status

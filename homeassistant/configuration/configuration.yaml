@@ -8,7 +8,7 @@ homeassistant:
   customize: !include configs/customize.yaml 
 
 # Enables the frontend
-frontend:
+frontend: !include configs/frontend.yaml
 
 # Enables configuration UI
 config:
@@ -32,7 +32,7 @@ zwave: !include configs/zwave.yaml
 automation old: !include_dir_merge_list configs/automations
 
 #LOAD Automations from editor
-automation: !include configs/automations.yaml
+automation: !include automations.yaml
 
 #Load Google Assistant
 google_assistant: !include configs/gassistant.yaml
