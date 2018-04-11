@@ -3,6 +3,7 @@ default_view:
   icon: mdi:home 
   entities:
     - group.alarm_clock
+    - group.door_sensors
     - group.smoke_detectors
     - group.all_devices
     - group.all_switches
@@ -15,7 +16,6 @@ entryway:
   entities:
     - switch.porch_light_switch      
     - group.entryway_sensor_group
-    - media_player.front_entryway_home
 
 garage:
   name: Garage
@@ -30,6 +30,7 @@ bedroom:
   entities:
     - switch.bedroom_light_switch
     - fan.bedroom_fan_level
+    - media_player.bedroom_home
 
 guestroom:
   name: Guest Room
@@ -96,6 +97,8 @@ zwave:
     - zwave.garage_door
     - zwave.main_floor_sensor
     - zwave.entryway_smoke_detector
+    - zwave.front_door
+    - zwave.kitchen_door
     - group.battery_sensor_group
     - group.test_stuff
 
@@ -121,6 +124,8 @@ battery_sensor_group:
     - sensor.main_floor_sensor_battery
     - sensor.thermostat_battery
     - sensor.entryway_smoke_detector_battery
+    - sensor.front_door_battery
+    - sensor.kitchen_door_battery
 
 smoke_detectors:
   name: Smoke Detectors
@@ -129,6 +134,14 @@ smoke_detectors:
   entities:
     - sensor.entryway_smoke_co2
 
+door_sensors:
+  name: Door Sensors
+  control: hidden
+  view: no
+  entities:
+    - sensor.front_door_state
+    - sensor.kitchen_door_state
+
 test_stuff:
   name: Testing Stuff
   control: hidden
@@ -136,6 +149,12 @@ test_stuff:
   entities:
     - sensor.entryway_smoke_detector_alarm_level
     - sensor.entryway_smoke_detector_alarm_type
+    - sensor.front_door_burglar
+    - sensor.front_door_access_control
+    - sensor.kitchen_door_burglar
+    - sensor.kitchen_door_access_control
+    
+    
 
 climate_sensor_group:
   name: HVAC
@@ -176,6 +195,8 @@ mainfloor_sensor_group:
   control: hidden
   view: no
   entities:
+    - sensor.kitchen_door_state
+    - sensor.kitchen_door_tamper
     - sensor.main_floor_sensor_luminance
     - sensor.main_floor_sensor_relative_humidity
     - sensor.main_floor_sensor_temperature
@@ -187,7 +208,9 @@ entryway_sensor_group:
   name: Entryway Sensors
   control: hidden
   view: no
-  entities:
+  entities: 
+    - sensor.front_door_state
+    - sensor.front_door_tamper
     - sensor.entryway_sensor_luminance
     - sensor.entryway_sensor_relative_humidity
     - sensor.entryway_sensor_temperature

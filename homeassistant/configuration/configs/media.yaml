@@ -20,8 +20,8 @@
     mac: !secret samsung_mac
 
   - platform: cast
-    name: "Entryway Google Home"
-    host: !secret gh_entryway
+    name: "Bedroom Google Home"
+    host: !secret gh_bedroom
   
   - platform: cast
     name: "Basement Google Home"
