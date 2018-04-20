@@ -19,7 +19,7 @@ if [ "$1" != "" ]; then
    log "Docker image with Home Assistant $HA_VERSION"
 else
    HA_VERSION="$(cat /var/log/home-assistant/docker-build.version)"
-   HA_VERSION="$(curl -s 'https://pypi.python.org/pypi/homeassistant/json' | jq '.info.version' | tr -d '"')"
+   HA_VERSION="$(curl -s 'https://pypi.org/pypi/homeassistant/json' | jq '.info.version' | tr -d '"')"
    HA_LATEST=true
    log "Docker image with Home Assistant 'latest' (version $HA_VERSION)"
 fi
