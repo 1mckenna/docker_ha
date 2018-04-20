@@ -1,0 +1,10 @@
+  include:
+    domains:
+      - automation
+      - light
+      - switch
+      - fan
+      - cover
+  exclude:
+    entities:
+      - automation.battery_sensor_from_battery_attribute
