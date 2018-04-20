@@ -1,14 +1,26 @@
-- alias: 'Turn on light with alarm'
-  hide_entity: False
+- alias: 'WakeUp Light Bedroom'
+  hide_entity: false
   trigger:
     platform: template
-    value_template: '{{ states.sensor.time.state == states.sensor.alarm_clock_time_long.state }}'
+    value_template: '{{ states.sensor.time.state == states.sensor.wakeup_start_time_lights.state }}'
   condition:
-    - condition: state
-      entity_id: input_boolean.alarm_clock_status
-      state: 'on'
-    - condition: state
-      entity_id: group.all_devices
-      state: 'home'
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.wakeup
+        state: 'on'
+      - condition: or
+        conditions:
+          - condition: state
+            entity_id: input_boolean.wakeup_weekends
+            state: 'on'
+          - condition: time
+            weekday:
+              - mon
+              - tue
+              - wed
+              - thu
+              - fri
   action:
-    service: script.wake_up
+    #service: script.wake_up
+    service: script.wakeup_bedroom

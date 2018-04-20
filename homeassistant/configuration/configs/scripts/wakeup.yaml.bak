@@ -1,0 +1,57 @@
+wakeup_bedroom:
+  alias: 'Wakeup lighting, smooth transition'
+  sequence:
+    - service: mqtt.publish
+      data_template:
+        topic: 'light/Bedroom/set'
+        payload: '{"state":"ON","brightness":0,"white_value":0,"color":{"r":128,"g":0,"b":0},"gamma":true}'
+    - delay:
+        seconds: 0
+    - service: mqtt.publish
+      data_template:
+        topic: 'light/Bedroom/set'
+        payload: '{"state":"ON","brightness":1,"white_value":0,"color":{"r":128,"g":0,"b":0},"gamma":true}'
+    - delay:
+        seconds: 1
+    - service: mqtt.publish
+      data_template:
+        topic: 'light/Bedroom/set'
+        payload: '{"state":"ON","brightness":41,"white_value":0,"color":{"r":128,"g":0,"b":0},"gamma":true}'
+        #transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 7 -1 ) | round ) | int }}'
+    - delay: '00:00:{{ (( states.input_number.wakeup_duration.state | float * 60 / 7 ) | round ) | int }}'
+    - service: mqtt.publish
+      data_template:
+        topic: 'light/Bedroom/set'
+        payload: '{"state":"ON","brightness":81,"white_value":0,"color":{"r":192,"g":64,"b":0},"gamma":true}'
+        #transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 7 - 1 ) | round ) | int }}'
+    - delay: '00:00:{{ (( states.input_number.wakeup_duration.state | float * 60 / 7 ) | round ) | int }}'
+    - service: mqtt.publish
+      data_template:
+        topic: 'light/Bedroom/set'
+        payload: '{"state":"ON","brightness":121,"white_value":0,"color":{"r":224,"g":128,"b":32},"gamma":true}'
+        #transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 7 - 1 ) | round ) | int }}'
+    - delay: '00:00:{{ (( states.input_number.wakeup_duration.state | float * 60 / 7 ) | round ) | int }}'
+    - service: mqtt.publish
+      data_template:
+        topic: 'light/Bedroom/set'
+        payload: '{"state":"ON","brightness":161,"white_value":0,"color":{"r":255,"g":176,"b":96},"gamma":true}'
+        #transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 7 - 1 ) | round ) | int }}'
+    - delay: '00:00:{{ (( states.input_number.wakeup_duration.state | float * 60 / 7 ) | round ) | int }}'
+    - service: mqtt.publish
+      data_template:
+        topic: 'light/Bedroom/set'
+        payload: '{"state":"ON","brightness":201,"white_value":0,"color":{"r":255,"g":224,"b":160},"gamma":true}'
+        #transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 7 - 1 ) | round ) | int }}'
+    - delay: '00:00:{{ (( states.input_number.wakeup_duration.state | float * 60 / 7 ) | round ) | int }}'
+    - service: mqtt.publish
+      data_template:
+        topic: 'light/Bedroom/set'
+        payload: '{"state":"ON","brightness":221,"white_value":0,"color":{"r":255,"g":255,"b":224},"gamma":true}'
+        #transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 7 - 1 ) | round ) | int }}'
+    - delay: '00:00:{{ (( states.input_number.wakeup_duration.state | float * 60 / 7 ) | round ) | int }}'
+    - service: mqtt.publish
+      data_template:
+        topic: 'light/Bedroom/set'
+        payload: '{"state":"ON","brightness":255,"white_value":0,"color":{"r":240,"g":255,"b":255},"gamma":true}'
+        #transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 7 - 1 ) | round ) | int }}'
+

@@ -130,30 +130,9 @@
   group.all_devices:
     hidden: false
     friendly_name: Users
-
-# Alarm clock sensors
-  sensor.time:
-    hidden: true
-  sensor.alarm_clock_hour:
-    hidden: true
-  sensor.alarm_clock_minute:
-    hidden: true
-  sensor.alarm_clock_time_long:
-    hidden: true
-  sensor.alarm_clock_time:
-    friendly_name: 'Alarm Clock Setting'
-    icon: mdi:alarm
-
-# Alarm clock inputs
-  input_number.alarm_clock_hour:
-    friendly_name: 'Hour'
-    icon: mdi:timer
-  input_number.alarm_clock_minute:
-    friendly_name: 'Minute'
-    icon: mdi:timer
-  input_boolean.alarm_clock_status:
-    friendly_name: 'Alarm Clock Status'
-    icon: mdi:alarm-check
+  group.all_lights:
+    hidden: false
+    friendly_name: Smart Bulbs
 
 #Battery Alert
   group.battery_alert:

@@ -92,7 +92,7 @@
     kitchen_door_tamper:
       friendly_name: 'Kitchen Door Tampering'
       value_template: >-
-          {%- if is_state("kitchen.front_door_burglar", "3") -%}
+          {%- if is_state("sensor.kitchen_door_burglar", "3") -%}
               Yes
           {%- else -%}
               No
@@ -111,6 +111,50 @@
           {%- else -%}
               mdi:door-open
           {%- endif -%}
+    game_room_main_door_tamper:
+      friendly_name: 'Game Room Main Door Tampering'
+      value_template: >-
+          {%- if is_state("sensor.game_room_main_door_burglar", "3") -%}
+              Yes
+          {%- else -%}
+              No
+          {%- endif -%}
+    game_room_main_door_state:
+      friendly_name: 'Game Room Main Door'
+      value_template: >-
+          {%- if is_state("sensor.game_room_main_door_access_control", "23") -%}
+              Closed
+          {%- else -%}
+              Open
+          {%- endif -%}
+      icon_template: >-
+          {%- if is_state("sensor.game_room_main_door_access_control", "23") -%}
+              mdi:door-closed
+          {%- else -%}
+              mdi:door-open
+          {%- endif -%}
+    game_room_side_door_tamper:
+      friendly_name: 'Game Room Side Door Tampering'
+      value_template: >-
+          {%- if is_state("sensor.game_room_side_door_burglar", "3") -%}
+              Yes
+          {%- else -%}
+              No
+          {%- endif -%}
+    game_room_side_door_state:
+      friendly_name: 'Game Room Side Door'
+      value_template: >-
+          {%- if is_state("sensor.game_room_side_door_access_control", "23") -%}
+              Closed
+          {%- else -%}
+              Open
+          {%- endif -%}
+      icon_template: >-
+          {%- if is_state("sensor.game_room_side_door_access_control", "23") -%}
+              mdi:door-closed
+          {%- else -%}
+              mdi:door-open
+          {%- endif -%}
     entryway_smoke_co2:
       friendly_name: 'Entryway Smoke Alarm'
       value_template: >- 
@@ -124,6 +168,42 @@
             {%- elif is_state("sensor.entryway_smoke_detector_alarm_type", "12") -%}
                 Testing
             {%- elif is_state("sensor.entryway_smoke_detector_alarm_type", "13") -%}
+                Idle
+            {%- else -%}
+                Unknown
+            {%- endif -%}
+          {%- endif -%} 
+    basement_smoke_co2:
+      friendly_name: 'Basement Smoke Alarm'
+      value_template: >- 
+          {%- if is_state("sensor.basement_smoke_detector_alarm_level", "0") -%}
+              Idle
+          {%- else -%}
+            {%- if is_state("sensor.basement_smoke_detector_alarm_type", "1") -%}
+                Fire
+            {%- elif is_state("sensor.basement_smoke_detector_alarm_type", "2") -%}
+                C02
+            {%- elif is_state("sensor.basement_smoke_detector_alarm_type", "12") -%}
+                Testing
+            {%- elif is_state("sensor.basement_smoke_detector_alarm_type", "13") -%}
+                Idle
+            {%- else -%}
+                Unknown
+            {%- endif -%}
+          {%- endif -%} 
+    upstairs_smoke_co2:
+      friendly_name: 'Upstairs Smoke Alarm'
+      value_template: >- 
+          {%- if is_state("sensor.upstairs_smoke_detector_alarm_level", "0") -%}
+              Idle
+          {%- else -%}
+            {%- if is_state("sensor.upstairs_smoke_detector_alarm_type", "1") -%}
+                Fire
+            {%- elif is_state("sensor.upstairs_smoke_detector_alarm_type", "2") -%}
+                C02
+            {%- elif is_state("sensor.upstairs_smoke_detector_alarm_type", "12") -%}
+                Testing
+            {%- elif is_state("sensor.upstairs_smoke_detector_alarm_type", "13") -%}
                 Idle
             {%- else -%}
                 Unknown
@@ -151,32 +231,43 @@
   file_path: /etc/fail2ban/log/fail2ban.log
   scan_interval: 60
 #ALARM CLOCK SENSORS
+- platform: template
+  sensors:
+    wakeup_alarm_time:
+      friendly_name: 'Alarm time'
+      value_template: '{% if states.input_number.wakeup_hour.state|length == 3 %}0{% endif %}{{ states.input_number.wakeup_hour.state | int }}:{% if states.input_number.wakeup_minutes.state|length == 3 %}0{% endif %}{{ states.input_number.wakeup_minutes.state | int }}'
+
+- platform: template
+  sensors:
+    wakeup_start_time_lights:
+      friendly_name: 'Fade-in start time'
+      value_template: >
+        {% if states.sensor.wakeup_alarm_time and states.input_number.wakeup_duration %}
+        {% set alarmtime = states.sensor.wakeup_alarm_time.state %}
+        {% set alarm_hour = alarmtime.split(":")[0] | int %}
+        {% set alarm_min = alarmtime.split(":")[1] | int %}
+        {% set light_dur = states.input_number.wakeup_duration.state | int %}
+        {% set alarm_min_light = alarm_min - light_dur %}
+        {% if alarm_min_light  < 0 %}
+        {% set alarm_min_light = alarm_min_light + 60 %}
+        {% set alarm_hour_light = alarm_hour - 1 %}
+        {% if alarm_hour_light < 0 %}{% set alarm_hour_light = 23 %}{% endif %}
+        {% if alarm_hour_light < 10 %}0{% endif %}{{ alarm_hour_light}}:{% if alarm_min_light < 10 %}0{% endif %}{{ alarm_min_light }}
+        {% else %}
+        {% if alarm_hour < 10 %}0{% endif %}{{ alarm_hour }}:{% if alarm_min_light < 10 %}0{% endif %}{{ alarm_min_light }}
+        {% endif %}
+        {% endif %}
+
+- platform: template
+  sensors:
+    wakeup_fadein_duration:
+      friendly_name: 'Fade-in duration'
+      value_template: '{{ states.input_number.wakeup_duration.state | int }}'
+      unit_of_measurement: 'min'
+
 - platform: time_date
   display_options:
     - 'time'
-- platform: template
-  sensors:
-    alarm_clock_hour:
-      value_template: '{{ states.input_number.alarm_clock_hour.state | int }}'
-    alarm_clock_minute:
-      value_template: '{{ states.input_number.alarm_clock_minute.state | int }}'
-    alarm_clock_time:
-      value_template: >-
-        {{ states.sensor.alarm_clock_hour.state }}:
-        {%- if states.sensor.alarm_clock_minute.state|length == 1 -%}
-          0
-        {%- endif -%}
-          {{ states.sensor.alarm_clock_minute.state }}
-    alarm_clock_time_long:
-      value_template: >-
-        {% if states.sensor.alarm_clock_hour.state|length == 1 -%}
-          0
-        {%- endif -%}
-          {{ states.sensor.alarm_clock_hour.state }}:
-        {%- if states.sensor.alarm_clock_minute.state|length == 1 -%}
-          0
-        {%- endif -%}
-          {{ states.sensor.alarm_clock_minute.state }}
 ##### Plant Link (Marilyn)
 - platform: rest
   resource: !secret plant_resource

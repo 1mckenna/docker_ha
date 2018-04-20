@@ -8,6 +8,7 @@ default_view:
     - group.all_devices
     - group.all_switches
     - group.all_fans
+    - group.all_lights
     - group.all_covers
 
 entryway:
@@ -44,7 +45,6 @@ basement:
   view: yes
   entities:
     - group.basment_sensor_group
-    - light.basement_light
     - media_player.basement_speaker
     - media_player.basement_tv
     - media_player.basement
@@ -97,6 +97,8 @@ zwave:
     - zwave.garage_door
     - zwave.main_floor_sensor
     - zwave.entryway_smoke_detector
+    - zwave.basement_smoke_detector
+    - zwave.upstairs_smoke_detector
     - zwave.front_door
     - zwave.kitchen_door
     - group.battery_sensor_group
@@ -124,8 +126,12 @@ battery_sensor_group:
     - sensor.main_floor_sensor_battery
     - sensor.thermostat_battery
     - sensor.entryway_smoke_detector_battery
+    - sensor.basement_smoke_detector_battery
+    - sensor.upstairs_smoke_detector_battery
     - sensor.front_door_battery
     - sensor.kitchen_door_battery
+    - sensor.game_room_main_door_battery
+    - sensor.game_room_side_door_battery
 
 smoke_detectors:
   name: Smoke Detectors
@@ -133,6 +139,8 @@ smoke_detectors:
   view: no
   entities:
     - sensor.entryway_smoke_co2
+    - sensor.basement_smoke_co2
+    - sensor.upstairs_smoke_co2
 
 door_sensors:
   name: Door Sensors
@@ -141,6 +149,8 @@ door_sensors:
   entities:
     - sensor.front_door_state
     - sensor.kitchen_door_state
+    - sensor.game_room_main_door_state
+    - sensor.game_room_side_door_state
 
 test_stuff:
   name: Testing Stuff
@@ -149,12 +159,10 @@ test_stuff:
   entities:
     - sensor.entryway_smoke_detector_alarm_level
     - sensor.entryway_smoke_detector_alarm_type
-    - sensor.front_door_burglar
-    - sensor.front_door_access_control
-    - sensor.kitchen_door_burglar
-    - sensor.kitchen_door_access_control
-    
-    
+    - sensor.basement_smoke_detector_alarm_level
+    - sensor.basement_smoke_detector_alarm_type
+    - sensor.upstairs_smoke_detector_alarm_level
+    - sensor.upstairs_smoke_detector_alarm_type
 
 climate_sensor_group:
   name: HVAC
@@ -183,6 +191,10 @@ basment_sensor_group:
   control: hidden
   view: no
   entities:
+    - sensor.game_room_main_door_state
+    - sensor.game_room_main_door_tamper
+    - sensor.game_room_side_door_state
+    - sensor.game_room_side_door_tamper
     - sensor.basement_sensor_luminance
     - sensor.basement_sensor_relative_humidity
     - sensor.basement_sensor_temperature
@@ -256,11 +268,16 @@ weather_overview:
 # Alarm clock
 alarm_clock:
   name: 'Alarm Clock'
+  control: hidden
   entities:
-    - sensor.alarm_clock_time
-    - input_number.alarm_clock_hour
-    - input_number.alarm_clock_minute
-    - input_boolean.alarm_clock_status
+    - sensor.wakeup_alarm_time
+    - sensor.wakeup_start_time_lights
+    - sensor.wakeup_fadein_duration
+    - input_number.wakeup_hour
+    - input_number.wakeup_minutes
+    - input_number.wakeup_duration
+    - input_boolean.wakeup
+    - input_boolean.wakeup_weekends
 #Battery Alert
 battery_alert:
   control: hidden

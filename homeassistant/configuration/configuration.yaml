@@ -25,6 +25,9 @@ alert: !include configs/alert.yaml
 #Load MQTT Config
 mqtt: !include configs/mqtt.yaml
 
+#Load MQTT Lights
+light: !include configs/mqtt_light.yaml
+
 #Load Zwave
 zwave: !include configs/zwave.yaml
 
@@ -50,7 +53,7 @@ conversation:
 history:
 
 # View all events in a logbook
-logbook:
+logbook: !include configs/logbook.yaml
 
 # Track the sun
 sun:
@@ -65,9 +68,6 @@ logger: !include configs/logging.yaml
 #Load Media Config
 media_player: !include configs/media.yaml
 
-#Load MQTT Light Config
-light: !include configs/mqtt_light.yaml 
-
 #Load Sensor Config
 sensor: !include configs/sensors.yaml
 
@@ -75,7 +75,8 @@ sensor: !include configs/sensors.yaml
 group: !include configs/groups.yaml
 
 #Load Scripts
-script: !include configs/scripts.yaml
+#script: !include configs/scripts.yaml
+script: !include_dir_merge_named configs/scripts
 
 #LOAD SLIDERS
 input_number: !include configs/input_slider.yaml
