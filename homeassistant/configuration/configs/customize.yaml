@@ -157,3 +157,10 @@
     friendly_name: "Battery Sensor from battery numeric Attribute"
     icon: mdi:battery-alert
     initial_state: 'on'
+ #ALARM
+  sensor.wakeup_alarm_time:
+    icon: mdi:timer
+  sensor.wakeup_fadein_duration:
+    icon: mdi:timer
+  sensor.wakeup_start_time_lights:
+    icon: mdi:timer

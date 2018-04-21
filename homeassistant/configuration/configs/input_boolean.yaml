@@ -1,9 +1,9 @@
   #ALARM CLOCK
   wakeup:
-    name: 'Enable wakeup light'
-    icon: mdi:power
-    initial: off
+    name: 'Weekday'
+    icon: mdi:alarm-check
+    initial: on
   wakeup_weekends:
-    name: 'Wakeup weekends'
-    icon: mdi:power
+    name: 'Weekend'
+    icon: mdi:alarm-check
     initial: off
