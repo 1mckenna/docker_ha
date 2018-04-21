@@ -6,4 +6,4 @@
   default: error
   logs:
     homeassistant.components.http.ban: warning
-    homeassistant.components.mqtt: debug
+    #homeassistant.components.mqtt: debug
