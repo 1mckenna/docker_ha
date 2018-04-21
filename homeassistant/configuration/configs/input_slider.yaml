@@ -18,8 +18,7 @@
   wakeup_duration:
     name: Fade Time
     icon: mdi:clock-in
-    initial: 10
-    #min: 5
+    initial: 30
     min: 5
     max: 60
     step: 5
