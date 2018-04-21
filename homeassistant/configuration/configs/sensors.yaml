@@ -247,7 +247,7 @@
         {% set alarm_hour = alarmtime.split(":")[0] | int %}
         {% set alarm_min = alarmtime.split(":")[1] | int %}
         {% set light_dur = states.input_number.wakeup_duration.state | int %}
-        {% set alarm_min_light = alarm_min - light_dur %}
+        {% set alarm_min_light = alarm_min - light_dur -10 %}
         {% if alarm_min_light  < 0 %}
         {% set alarm_min_light = alarm_min_light + 60 %}
         {% set alarm_hour_light = alarm_hour - 1 %}
