@@ -1,0 +1,12 @@
+#Testing Group
+test_stuff:
+  name: Testing Stuff
+  control: hidden
+  view: no
+  entities:
+    - sensor.entryway_smoke_detector_alarm_level
+    - sensor.entryway_smoke_detector_alarm_type
+    - sensor.basement_smoke_detector_alarm_level
+    - sensor.basement_smoke_detector_alarm_type
+    - sensor.upstairs_smoke_detector_alarm_level
+    - sensor.upstairs_smoke_detector_alarm_type

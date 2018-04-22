@@ -1,0 +1,21 @@
+###########################
+# Mainfloor Sensor
+###########################
+- platform: template
+  sensors:  
+    mainfloor_multisensor_motion:
+      friendly_name: 'Motion Detected?'
+      value_template: >-
+          {%- if is_state("sensor.main_floor_sensor_burglar", "0") -%}
+              No
+          {%- else -%}
+              Yes
+          {%- endif -%}
+    mainfloor_multisensor_tamper:
+      friendly_name: 'Main Floor Sensor Tampering'
+      value_template: >-
+          {%- if is_state("sensor.main_floor_sensor_burgler", "3") -%}
+              Yes
+          {%- else -%}
+              No
+          {%- endif -%}

@@ -1,0 +1,21 @@
+###########################
+# Entryway Sensor
+###########################
+- platform: template
+  sensors:  
+    entryway_multisensor_motion:
+      friendly_name: 'Motion Detected?'
+      value_template: >-
+          {%- if is_state("sensor.entryway_sensor_burglar", "0") -%}
+              No
+          {%- else -%}
+              Yes
+          {%- endif -%}
+    entryway_multisensor_tamper:
+      friendly_name: 'Entryway Sensor Tampering'
+      value_template: >-
+          {%- if is_state("sensor.entryway_sensor_burgler", "3") -%}
+              Yes
+          {%- else -%}
+              No
+          {%- endif -%}

@@ -32,6 +32,10 @@
     host: !secret gh_bathroom
 
   - platform: cast
+    name: "Guest Room Google Home"
+    host: !secret gh_guestroom
+
+  - platform: cast
     name: "Basement Chromecast"
     host: !secret cc_basement
 

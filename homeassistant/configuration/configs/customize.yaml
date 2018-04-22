@@ -1,111 +1,27 @@
-  sensor.fail2ban_ssh:
-    hidden: true
-  sensor.fail2ban_hassiptables:
-    hidden: true
-  sensor.basement_sensor_alarm_level:
-    hidden: true
-  sensor.basement_sensor_alarm_type:
-    hidden: true
-  sensor.basement_sensor_appliance:
-    hidden: true
-  sensor.basement_sensor_burglar:
-    hidden: true
-  sensor.basement_sensor_emergency:
-    hidden: true
   sensor.basement_sensor_luminance:
     friendly_name: Basement Luminance
-  sensor.basement_sensor_power_management:
-    hidden: true
   sensor.basement_sensor_relative_humidity:
     friendly_name: Basement Relative Humidity
-  sensor.basement_sensor_sourcenodeid:
-    hidden: true
   sensor.basement_sensor_temperature:
     friendly_name: Basement Temperature
-  binary_sensor.basement_sensor_sensor:
-    hidden: true
   sensor.main_floor_sensor_temperature:
     friendly_name: Main Floor Temperature
-  binary_sensor.main_floor_sensor_sensor:
-    hidden: true
   sensor.main_floor_sensor_luminance:
     friendly_name: Main Floor Luminance
   sensor.main_floor_sensor_relative_humidity:
     friendly_name: Main Floor Relative Humidity
-  sensor.main_floor_sensor_alarm_type:
-    hidden: true
-  sensor.main_floor_sensor_alarm_level:
-    hidden: true
-  sensor.main_floor_sensor_sourcenodeid:
-    hidden: true
-  sensor.main_floor_sensor_burglar:
-    hidden: true
-  sensor.main_floor_sensor_power_management:
-    hidden: true
-  sensor.main_floor_sensor_system:
-    hidden: true
-  sensor.main_floor_sensor_emergency:
-    hidden: true
-  sensor.main_floor_sensor_clock:
-    hidden: true
-  sensor.main_floor_sensor_homehealth:
-    hidden: true
-  binary_sensor.garage_sensor_sensor:
-    hidden: true
-  sensor.garage_sensor_alarm_type:
-    hidden: true
-  sensor.garage_sensor_alarm_level:
-    hidden: true
-  sensor.garage_sensor_sourcenodeid:
-    hidden: true
-  sensor.garage_sensor_burglar:
-    hidden: true
-  sensor.garage_sensor_emergency:
-    hidden: true
-  sensor.garage_sensor_appliance:
-    hidden: true
-  sensor.garage_door_access_control:
-    hidden: true
-  sensor.garage_door_alarm_level:
-    hidden: true
-  sensor.garage_door_alarm_type:
-    hidden: true
-  sensor.garage_door_burglar:
-    hidden: true
-  sensor.garage_door_sourcenodeid:
-    hidden: true
-  binary_sensor.entryway_sensor_sensor:
-    hidden: true
   sensor.entryway_sensor_temperature:
     friendly_name: Entryway Temperature
   sensor.entryway_sensor_luminance:
     friendly_name: Entryway Luminance
   sensor.entryway_sensor_relative_humidity:
     friendly_name: Entryway Relative Humidity
-  sensor.entryway_sensor_alarm_type:
-    hidden: true
-  sensor.entryway_sensor_alarm_level:
-    hidden: true
-  sensor.entryway_sensor_sourcenodeid:
-    hidden: true
-  sensor.entryway_sensor_burglar:
-    hidden: true
-  sensor.entryway_sensor_power_management:
-    hidden: true
-  sensor.entryway_sensor_system:
-    hidden: true
-  sensor.entryway_sensor_emergency:
-    hidden: true
-  sensor.entryway_sensor_appliance:
-    hidden: true
   sensor.garage_sensor_luminance:
     friendly_name: Garage Luminance
   sensor.garage_sensor_relative_humidity:
     friendly_name: Garage Relative Humidity
   sensor.garage_sensor_temperature:
     friendly_name: Garage Temperature
-  sensor.thermostat_temperature:
-    hidden: true
   climate.thermostat_heating_1:
     friendly_name: Heating
   climate.thermostat_cooling_1:

@@ -1,0 +1,21 @@
+###########################
+# Garage Sensor
+###########################
+- platform: template
+  sensors:  
+    garage_multisensor_motion:
+      friendly_name: 'Motion Detected?'
+      value_template: >-
+          {%- if is_state("sensor.garage_sensor_burglar", "0") -%}
+              No
+          {%- else -%}
+              Yes
+          {%- endif -%}
+    garage_multisensor_tamper:
+      friendly_name: 'Garage Sensor Tampering'
+      value_template: >-
+          {%- if is_state("sensor.garage_sensor_burgler", "3") -%}
+              Yes
+          {%- else -%}
+              No
+          {%- endif -%}

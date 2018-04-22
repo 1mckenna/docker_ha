@@ -1,0 +1,10 @@
+#Door Group
+door_sensors:
+  name: Door Sensors
+  control: hidden
+  view: no
+  entities:
+    - sensor.front_door_state
+    - sensor.kitchen_door_state
+    - sensor.game_room_main_door_state
+    - sensor.game_room_side_door_state
