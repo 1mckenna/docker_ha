@@ -32,7 +32,7 @@
         brightness: 255
         color_temp: 350
         transition: '{{ states.input_number.wakeup_duration.state | float * 60 | float }}'
-    - delay: '00:10:{{ states.input_number.wakeup_duration.state | int * 60 | int }}'
+    - delay: '00:{{ states.input_number.wakeup_delay.state | int }}:{{ states.input_number.wakeup_duration.state | int * 60 | int }}'
     - service: switch.turn_on
       entity_id: switch.bedroom_light_switch
 

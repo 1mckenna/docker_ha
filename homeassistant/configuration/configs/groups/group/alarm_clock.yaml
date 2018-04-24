@@ -9,5 +9,6 @@ alarm_clock:
     - input_number.wakeup_hour
     - input_number.wakeup_minutes
     - input_number.wakeup_duration
+    - input_number.wakeup_delay
     - input_boolean.wakeup
     - input_boolean.wakeup_weekends

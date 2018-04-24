@@ -22,6 +22,14 @@
     min: 5
     max: 60
     step: 5
+
+  wakeup_delay:
+    name: Overhead Delay
+    icon: mdi:clock-in
+    initial: 10
+    min: 0
+    max: 60
+    step: 5
   
   #Battery Alert
   battery_alert_threshold_max:

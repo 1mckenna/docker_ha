@@ -3,4 +3,4 @@ guestroom:
   view: yes
   entities:
     - switch.guest_room_light_switch
-    - media_player.guestroom
+    - media_player.guest_room_speaker
