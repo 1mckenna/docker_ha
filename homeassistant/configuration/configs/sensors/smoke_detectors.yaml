@@ -12,7 +12,7 @@
             {%- if is_state("sensor.entryway_smoke_detector_alarm_type", "1") -%}
                 Fire
             {%- elif is_state("sensor.entryway_smoke_detector_alarm_type", "2") -%}
-                C02
+                CO
             {%- elif is_state("sensor.entryway_smoke_detector_alarm_type", "12") -%}
                 Testing
             {%- elif is_state("sensor.entryway_smoke_detector_alarm_type", "13") -%}
@@ -30,7 +30,7 @@
             {%- if is_state("sensor.basement_smoke_detector_alarm_type", "1") -%}
                 Fire
             {%- elif is_state("sensor.basement_smoke_detector_alarm_type", "2") -%}
-                C02
+                CO
             {%- elif is_state("sensor.basement_smoke_detector_alarm_type", "12") -%}
                 Testing
             {%- elif is_state("sensor.basement_smoke_detector_alarm_type", "13") -%}
@@ -48,7 +48,7 @@
             {%- if is_state("sensor.upstairs_smoke_detector_alarm_type", "1") -%}
                 Fire
             {%- elif is_state("sensor.upstairs_smoke_detector_alarm_type", "2") -%}
-                C02
+                CO
             {%- elif is_state("sensor.upstairs_smoke_detector_alarm_type", "12") -%}
                 Testing
             {%- elif is_state("sensor.upstairs_smoke_detector_alarm_type", "13") -%}

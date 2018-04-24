@@ -80,3 +80,10 @@
     icon: mdi:timer
   sensor.wakeup_start_time_lights:
     icon: mdi:timer
+ #SMOKE Detectors
+  sensor.basement_smoke_co2:
+    friendly_name: "Basement Smoke Detector"          
+  sensor.upstairs_smoke_co2:
+    friendly_name: "Upstairs Smoke Detector"          
+  sensor.entryway_smoke_co2:
+    friendly_name: "Entryway Smoke Detector"          
