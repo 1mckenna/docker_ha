@@ -3,8 +3,8 @@
 - alias: 'Ride Motorcycle'
   hide_entity: false
   trigger:
-    platform: sun
-    event: sunrise
+    platform: time
+    at: '5:30'
   condition:
     condition: and
     conditions:
