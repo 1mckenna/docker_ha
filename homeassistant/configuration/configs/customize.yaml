@@ -22,6 +22,8 @@
     friendly_name: Garage Relative Humidity
   sensor.garage_sensor_temperature:
     friendly_name: Garage Temperature
+  sensor.marilyn_status:
+    friendly_name: Marilyn
   climate.thermostat_heating_1:
     friendly_name: Heating
   climate.thermostat_cooling_1:
@@ -49,7 +51,9 @@
   group.all_lights:
     hidden: false
     friendly_name: Smart Bulbs
-
+  group.all_automation:
+    hidden: false
+    friendly_name: Automations
 #Battery Alert
   group.battery_alert:
     friendly_name: "Battery Alert"
