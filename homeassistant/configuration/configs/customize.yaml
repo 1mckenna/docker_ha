@@ -51,7 +51,7 @@
   group.all_lights:
     hidden: false
     friendly_name: Smart Bulbs
-  group.all_automation:
+  group.all_automations:
     hidden: false
     friendly_name: Automations
 #Battery Alert
