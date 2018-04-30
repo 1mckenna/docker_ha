@@ -5,4 +5,4 @@
     to: 'not_home'
   action:
     service: homeassistant.turn_off
-    entity_id: group.all_fans,group.all_switches
+    entity_id: group.all_fans,group.all_switches,group.all_lights
