@@ -60,8 +60,10 @@ sun:
 
 # Text to speech
 tts:
-  platform: google
-
+  - platform: google
+    cache: true
+    cache_dir: /config/tts
+    time_memory: 300
 #Load Logging Config
 logger: !include configs/logging.yaml
 
