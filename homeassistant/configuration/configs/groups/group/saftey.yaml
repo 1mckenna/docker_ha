@@ -7,4 +7,6 @@ saftey_autos_group:
     - automation.co_detected
     - automation.fire_detected
     - automation.smoke_detector_testing_detected
+    - automation.wx_alert_notification
+    - automation.tts_and_notify_weather_alert
 
