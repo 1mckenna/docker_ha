@@ -4,7 +4,6 @@ default_view:
   view: yes
   icon: mdi:home 
   entities:
-    - group.alarm_clock
     - group.door_sensors
     - group.smoke_detectors
     - group.all_devices
