@@ -90,4 +90,27 @@
   sensor.upstairs_smoke_co2:
     friendly_name: "Upstairs Smoke Detector"          
   sensor.entryway_smoke_co2:
-    friendly_name: "Entryway Smoke Detector"          
+    friendly_name: "Entryway Smoke Detector"
+  #TAB Ordering
+  group.basement:
+    order: 1
+  group.entryway:
+    order: 2
+  group.mainlevel:
+    order: 3
+  group.bedroom:
+    order: 4
+  group.guestroom:
+    order: 5
+  group.office:
+    order: 6
+  group.garage:
+    order: 7
+  group.plants:
+    order: 8
+  group.climate:
+    order: 9
+  group.automations:
+    order: 10
+  group.zwave:
+    order: 11
