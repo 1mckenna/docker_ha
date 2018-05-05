@@ -12,6 +12,7 @@
   verify_ssl: false
   name: Plant Name
   value_template: '{{ value_json.name }}'
+  scan_interval: 3600
 - platform: rest
   resource: !secret plant_resource
   method: GET
@@ -20,6 +21,7 @@
     Authorization: !secret plant_auth
   verify_ssl: false
   name: Marilyn Status
+  scan_interval: 3600
   value_template: >
          {% if value_json.status | int == 0 %}
            Too Dry
@@ -41,6 +43,7 @@
   headers:
     Authorization: !secret plant_auth
   verify_ssl: false
+  scan_interval: 3600
   name: Marilyn Moisture
   sensor_class: moisture
   unit_of_measurement: '%'
