@@ -5,6 +5,7 @@ default_view:
   icon: mdi:home 
   entities:
     - group.door_sensors
+    - group.motion_sensors
     - group.smoke_detectors
     - group.all_devices
     - group.all_switches
