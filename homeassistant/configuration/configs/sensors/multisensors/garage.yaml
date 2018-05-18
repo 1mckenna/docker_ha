@@ -4,18 +4,33 @@
 - platform: template
   sensors:  
     garage_multisensor_motion:
-      friendly_name: 'Motion Detected?'
+      friendly_name: 'Garage Motion'
+      entity_id: sensor.garage_sensor_burglar
       value_template: >-
           {%- if is_state("sensor.garage_sensor_burglar", "0") -%}
-              No
+              Clear
           {%- else -%}
-              Yes
+              Detected
+          {%- endif -%}
+      icon_template: >-
+          {%- if is_state("sensor.garage_sensor_burglar", "0") -%}
+              mdi:walk
+          {%- else -%}
+              mdi:run-fast
           {%- endif -%}
     garage_multisensor_tamper:
       friendly_name: 'Garage Sensor Tampering'
+      entity_id: sensor.garage_sensor_burglar
       value_template: >-
-          {%- if is_state("sensor.garage_sensor_burgler", "3") -%}
+          {%- if is_state("sensor.garage_sensor_burglar", "3") -%}
               Yes
           {%- else -%}
               No
           {%- endif -%}
+      icon_template: >-
+          {%- if is_state("sensor.garage_sensor_burglar", "3") -%}
+              mdi:alert-outline
+          {%- else -%}
+              mdi:triangle-outline
+          {%- endif -%}
+

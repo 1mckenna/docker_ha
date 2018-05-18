@@ -9,17 +9,9 @@
 #Notify on Severe Weather
 - alias: TTS and Notify Weather Alert
   trigger:
-    platform: state
+    platform: numeric_state
     entity_id: sensor.pws_alerts
-  condition:
-    condition: and
-    conditions:
-      - condition: template
-        value_template: '{{states.sensor.pws_alerts.state | int > 0}}'
-        ## Added a time condition because I don't want a non-emergency alert waking me up
-      - condition: time
-        after: '07:00:00'
-        before: '22:00:00'
+    above: 0
   action:
     - service: tts.google_say
       data_template:

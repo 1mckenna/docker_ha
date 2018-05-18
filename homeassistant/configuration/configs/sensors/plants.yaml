@@ -11,7 +11,7 @@
     Authorization: !secret plant_auth
   verify_ssl: false
   name: Plant Name
-  value_template: '{{ value_json.name }}'
+  value_template: "{{ value_json.name }}"
   scan_interval: 3600
 - platform: rest
   resource: !secret plant_resource
@@ -35,6 +35,20 @@
            Too Wet
          {% else %}
            value_json.status
+         {% endif %}
+  icon_template: >
+         {% if value_json.status | int == 0 %}
+           mdi:water
+         {% elif value_json.status | int == 1 %}
+           mdi:water
+         {% elif value_json.status | int == 2 %}
+           mdi:water-off
+         {% elif value_json.status | int == 3 %}
+           mdi:water-off
+         {% elif value_json.status | int == 4 %}
+           mdi:water-off
+         {% else %}
+           mdi:water-off
          {% endif %}
 - platform: rest
   resource: !secret plant_resource

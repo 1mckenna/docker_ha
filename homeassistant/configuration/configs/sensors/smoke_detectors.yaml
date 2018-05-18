@@ -21,6 +21,22 @@
                 Unknown
             {%- endif -%}
           {%- endif -%} 
+      icon_template: >- 
+          {%- if is_state("sensor.entryway_smoke_detector_alarm_level", "0") -%}
+              mdi:triangle-outline
+          {%- else -%}
+            {%- if is_state("sensor.entryway_smoke_detector_alarm_type", "1") -%}
+                mdi:alert-icon
+            {%- elif is_state("sensor.entryway_smoke_detector_alarm_type", "2") -%}
+                mdi:alert-icon
+            {%- elif is_state("sensor.entryway_smoke_detector_alarm_type", "12") -%}
+                mdi:alert-icon
+            {%- elif is_state("sensor.entryway_smoke_detector_alarm_type", "13") -%}
+                mdi:triangle-outline
+            {%- else -%}
+                mdi:alert-icon
+            {%- endif -%}
+          {%- endif -%} 
     basement_smoke_co2:
       friendly_name: 'Basement Smoke Alarm'
       value_template: >- 
@@ -39,6 +55,22 @@
                 Unknown
             {%- endif -%}
           {%- endif -%} 
+      icon_template: >- 
+          {%- if is_state("sensor.basement_smoke_detector_alarm_level", "0") -%}
+              mdi:triangle-outline
+          {%- else -%}
+            {%- if is_state("sensor.basement_smoke_detector_alarm_type", "1") -%}
+                mdi:alert-icon
+            {%- elif is_state("sensor.basement_smoke_detector_alarm_type", "2") -%}
+                mdi:alert-icon
+            {%- elif is_state("sensor.basement_smoke_detector_alarm_type", "12") -%}
+                mdi:alert-icon
+            {%- elif is_state("sensor.basement_smoke_detector_alarm_type", "13") -%}
+                mdi:triangle-outline
+            {%- else -%}
+                mdi:alert-icon
+            {%- endif -%}
+          {%- endif -%} 
     upstairs_smoke_co2:
       friendly_name: 'Upstairs Smoke Alarm'
       value_template: >- 
@@ -55,5 +87,21 @@
                 Idle
             {%- else -%}
                 Unknown
+            {%- endif -%}
+          {%- endif -%} 
+      icon_template: >- 
+          {%- if is_state("sensor.upstairs_smoke_detector_alarm_level", "0") -%}
+              mdi:triangle-outline
+          {%- else -%}
+            {%- if is_state("sensor.upstairs_smoke_detector_alarm_type", "1") -%}
+                mdi:alert-icon
+            {%- elif is_state("sensor.upstairs_smoke_detector_alarm_type", "2") -%}
+                mdi:alert-icon
+            {%- elif is_state("sensor.upstairs_smoke_detector_alarm_type", "12") -%}
+                mdi:alert-icon
+            {%- elif is_state("sensor.upstairs_smoke_detector_alarm_type", "13") -%}
+                mdi:triangle-outline
+            {%- else -%}
+                mdi:alert-icon
             {%- endif -%}
           {%- endif -%} 

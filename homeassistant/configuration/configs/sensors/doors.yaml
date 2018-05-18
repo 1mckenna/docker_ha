@@ -11,6 +11,12 @@
           {%- else -%}
               No
           {%- endif -%}
+      icon_template: >-
+          {%- if is_state("sensor.front_door_burglar", "3") -%}
+              mdi:alert-outline
+          {%- else -%}
+              mdi:triangle-outline
+          {%- endif -%}
     front_door_state:
       friendly_name: 'Front Door'
       value_template: >-
@@ -32,6 +38,12 @@
               Yes
           {%- else -%}
               No
+          {%- endif -%}
+      icon_template: >-
+          {%- if is_state("sensor.kitchen_door_burglar", "3") -%}
+              mdi:alert-outline
+          {%- else -%}
+              mdi:triangle-outline
           {%- endif -%}
     kitchen_door_state:
       friendly_name: 'Kitchen Door'
@@ -55,6 +67,12 @@
           {%- else -%}
               No
           {%- endif -%}
+      icon_template: >-
+          {%- if is_state("sensor.game_room_main_door_burglar", "3") -%}
+              mdi:alert-outline
+          {%- else -%}
+              mdi:triangle-outline
+          {%- endif -%}
     game_room_main_door_state:
       friendly_name: 'Game Room Main Door'
       value_template: >-
@@ -76,6 +94,12 @@
               Yes
           {%- else -%}
               No
+          {%- endif -%}
+      icon_template: >-
+          {%- if is_state("sensor.game_room_side_door_burglar", "3") -%}
+              mdi:alert-outline
+          {%- else -%}
+              mdi:triangle-outline
           {%- endif -%}
     game_room_side_door_state:
       friendly_name: 'Game Room Side Door'

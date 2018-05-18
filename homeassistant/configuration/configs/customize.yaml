@@ -1,29 +1,41 @@
   sensor.basement_sensor_luminance:
     friendly_name: Basement Luminance
+    icon: mdi:brightness-6
   sensor.basement_sensor_relative_humidity:
     friendly_name: Basement Relative Humidity
+    icon: mdi:water-percent
   sensor.basement_sensor_temperature:
     friendly_name: Basement Temperature
   sensor.main_floor_sensor_temperature:
     friendly_name: Main Floor Temperature
   sensor.main_floor_sensor_luminance:
     friendly_name: Main Floor Luminance
+    icon: mdi:brightness-6
   sensor.main_floor_sensor_relative_humidity:
     friendly_name: Main Floor Relative Humidity
+    icon: mdi:water-percent
   sensor.entryway_sensor_temperature:
     friendly_name: Entryway Temperature
   sensor.entryway_sensor_luminance:
     friendly_name: Entryway Luminance
+    icon: mdi:brightness-6
   sensor.entryway_sensor_relative_humidity:
     friendly_name: Entryway Relative Humidity
+    icon: mdi:water-percent
   sensor.garage_sensor_luminance:
     friendly_name: Garage Luminance
+    icon: mdi:brightness-6
   sensor.garage_sensor_relative_humidity:
     friendly_name: Garage Relative Humidity
+    icon: mdi:water-percent
   sensor.garage_sensor_temperature:
     friendly_name: Garage Temperature
   sensor.marilyn_status:
     friendly_name: Marilyn
+  sensor.plant_name:
+    icon: mdi:flower
+  sensor.marilyn_moisture:
+    icon: mdi:water-percent
   climate.thermostat_heating_1:
     friendly_name: Heating
   climate.thermostat_cooling_1:
@@ -114,3 +126,11 @@
     order: 10
   group.zwave:
     order: 11
+  light.bedroom_lamps:
+    icon: mdi:lamp
+  light.guest_bedroom_lamp:
+    icon: mdi:lamp
+  light.office_lamp:
+    icon: mdi:lamp
+  device_tracker.galaxys8:
+    icon: mdi:account-heart
