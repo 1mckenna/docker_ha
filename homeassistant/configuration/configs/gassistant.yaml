@@ -7,14 +7,5 @@ exposed_domains:
   - switch
   - light
   - fan
-#  - group
-#entity_config:
-#  switch.kitchen:
-#    name: Custom Name for Google Assistant
-#    aliases:
-#      - bright lights
-#      - entry lights
-#    type: light
-#  light.living_room:
-#    expose: false
+  - scene
 
