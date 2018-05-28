@@ -9,7 +9,7 @@
     name: "TX-RZ800"
     sources:
       strm-box: "FireTV"
-      video2: "Living Room Chromecast"
+      video2: "Basement Chromecast"
       dvd: "PS3"
 
 #Add Basement TV
@@ -35,6 +35,10 @@
     name: "Guest Room Google Home"
     host: !secret gh_guestroom
 
+  - platform: cast
+    name: "Main Floor Google Home"
+    host: !secret gh_mainfloor
+  
   - platform: cast
     name: "Basement Chromecast"
     host: !secret cc_basement
