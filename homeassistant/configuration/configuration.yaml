@@ -71,8 +71,10 @@ logger: !include configs/logging.yaml
 media_player: !include configs/media.yaml
 
 #Load Sensor Config
-#sensor: !include configs/sensors.yaml
 sensor: !include_dir_merge_list configs/sensors
+
+#Load Scenes Config
+scene: !include_dir_merge_list configs/scenes
 
 #Load HA Groups
 group: !include_dir_merge_named configs/groups
