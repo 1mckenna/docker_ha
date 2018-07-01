@@ -7,6 +7,6 @@ garage_sensor_group:
     - sensor.garage_sensor_luminance
     - sensor.garage_sensor_relative_humidity
     - sensor.garage_sensor_temperature
-    - sensor.garage_multisensor_motion
-    - sensor.garage_multisensor_tamper
+    - binary_sensor.garage_multisensor_motion
+    - binary_sensor.garage_multisensor_tamper
     - sensor.garage_multisensor_batterylevel

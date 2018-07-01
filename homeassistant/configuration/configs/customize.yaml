@@ -134,3 +134,9 @@
     icon: mdi:lamp
   device_tracker.galaxys8:
     icon: mdi:account-heart
+  binary_sensor.washing_machine:
+    icon: mdi:washing-machine
+  binary_sensor.dryer_running:
+    icon: mdi:tumble-dryer
+  binary_sensor.dryer_cooldown:
+    icon: mdi:tumble-dryer

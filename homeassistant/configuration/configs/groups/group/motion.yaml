@@ -4,7 +4,7 @@ motion_sensors:
   control: hidden
   view: no
   entities:
-    - sensor.garage_multisensor_motion 
-    - sensor.entryway_multisensor_motion
-    - sensor.mainfloor_multisensor_motion
-    - sensor.basement_multisensor_motion
+    - binary_sensor.garage_multisensor_motion 
+    - binary_sensor.entryway_multisensor_motion
+    - binary_sensor.mainfloor_multisensor_motion
+    - binary_sensor.basement_multisensor_motion

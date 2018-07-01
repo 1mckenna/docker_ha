@@ -10,3 +10,7 @@ convenience_autos_group:
     - automation.turn_on_main_floor_lights_when_there_is_movement
     - automation.wakeup_light_bedroom
     - automation.ride_motorcycle
+    - automation.washer_cycle_complete
+    - automation.dryer_cooldown_mode
+    - automation.drying_cycle_complete
+    - automation.turn_off_laundry_switches

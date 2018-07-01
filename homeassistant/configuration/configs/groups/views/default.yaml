@@ -7,6 +7,7 @@ default_view:
     - group.door_sensors
     - group.motion_sensors
     - group.smoke_detectors
+    - group.laundry
     - group.all_devices
     - group.all_switches
     - group.all_fans

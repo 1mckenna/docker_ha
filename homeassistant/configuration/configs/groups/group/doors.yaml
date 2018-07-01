@@ -4,7 +4,7 @@ door_sensors:
   control: hidden
   view: no
   entities:
-    - sensor.front_door_state
-    - sensor.kitchen_door_state
-    - sensor.game_room_main_door_state
-    - sensor.game_room_side_door_state
+    - binary_sensor.front_door_state
+    - binary_sensor.kitchen_door_state
+    - binary_sensor.game_room_main_door_state
+    - binary_sensor.game_room_side_door_state

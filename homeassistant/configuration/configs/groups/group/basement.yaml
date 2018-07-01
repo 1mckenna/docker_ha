@@ -4,13 +4,13 @@ basment_sensor_group:
   control: hidden
   view: no
   entities:
-    - sensor.game_room_main_door_state
-    - sensor.game_room_main_door_tamper
-    - sensor.game_room_side_door_state
-    - sensor.game_room_side_door_tamper
+    - binary_sensor.game_room_main_door_state
+    - binary_sensor.game_room_main_door_tamper
+    - binary_sensor.game_room_side_door_state
+    - binary_sensor.game_room_side_door_tamper
     - sensor.basement_sensor_luminance
     - sensor.basement_sensor_relative_humidity
     - sensor.basement_sensor_temperature
-    - sensor.basement_multisensor_motion
-    - sensor.basement_multisensor_tamper 
+    - binary_sensor.basement_multisensor_motion
+    - binary_sensor.basement_multisensor_tamper 
     - sensor.basement_multisensor_batterylevel
