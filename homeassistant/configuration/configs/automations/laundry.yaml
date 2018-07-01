@@ -1,0 +1,54 @@
+#LAUNDRY AUTOMATIONS
+#
+#NOTIFY WHEN WASHING MACHINE COMPLETES CYCLE
+- alias: 'Washer Cycle Complete'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.washing_machine
+    to: 'off'
+  action:
+    - service: notify.notify
+      data_template:
+        message: >
+          Washing Machine Completed {{ states.sensor.time.state }}
+        target: [!secret adminPhone, !secret userPhone]
+
+#NOTIFY WHEN DRYER ENTERING WRINKLE GUARD MODE
+- alias: 'Dryer Cooldown Mode'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.dryer_cooldown
+    to: 'on'
+  action:
+    - service: notify.notify
+      data_template:
+        message: >
+          Dryer Starting Wrinkle Guard Mode {{ states.sensor.time.state }}
+        target: [!secret adminPhone, !secret userPhone]
+
+#NOTIFY WHEN DRYER HAS COMPLETED CYCLE
+- alias: 'Drying Cycle Complete'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.dryer_cooldown
+    to: 'off'
+  action:
+    - service: notify.notify
+      data_template:
+        message: >
+          Laundry Drying Completed {{ states.sensor.time.state }}
+        target: !secret adminPhone
+#        target: [!secret adminPhone, !secret userPhone]
+
+
+#TURN OFF LAUNDRY SWITCHES IF LAUNDRY HAS BEEN COMPLETED FOR AN HOUR
+- alias: 'Turn Off Laundry Switches'
+  trigger:
+    platform: state
+    entity_id: group.laundry
+    to: 'off'
+    for:
+      hours: 1
+  action:
+    service: homeassistant.turn_off
+    entity_id: switch.dryer_switch,switch.washing_machine_switch
