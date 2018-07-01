@@ -1,0 +1,19 @@
+###########################
+# Dryer Sensor                 
+###########################
+- platform: template
+  sensors:  
+    dryer_running:
+      friendly_name: 'Dryer Running'
+      device_class: power
+      delay_off:
+        minutes: 5
+      value_template: "{{ states('sensor.dryer_power') | float > 10 }}"
+    dryer_cooldown:
+      friendly_name: 'Dryer Cooldown'
+      device_class: power
+      delay_off:
+        minutes: 5
+      value_template: >-
+        {{ (states('sensor.dryer_power') | float < 10) and
+           (states('sensor.dryer_power') | float > 0) }}
