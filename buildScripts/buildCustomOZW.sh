@@ -95,6 +95,7 @@ RUN apt-get update && \
       libmicrohttpd-dev \
       iputils-ping \
       locate \
+      libmariadbclient-dev \
       ssh && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
@@ -107,7 +108,7 @@ VOLUME /config
 ###################################
 # Install Home Assistant
 ###################################
-RUN pip3 install homeassistant==$HA_VERSION aiohttp_cors websocket-client sqlalchemy pyRFXTRX cython wheel six 'PyDispatcher>=2.0.5'
+RUN pip3 install homeassistant==$HA_VERSION aiohttp_cors websocket-client sqlalchemy mysqlclient pyRFXTRX cython wheel six 'PyDispatcher>=2.0.5'
 
 ###################################
 # Install Dev Branch of OpenZWave
