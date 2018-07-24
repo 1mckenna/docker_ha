@@ -4,9 +4,8 @@ test_stuff:
   control: hidden
   view: no
   entities:
-    - sensor.entryway_smoke_detector_alarm_level
-    - sensor.entryway_smoke_detector_alarm_type
-    - sensor.basement_smoke_detector_alarm_level
-    - sensor.basement_smoke_detector_alarm_type
-    - sensor.upstairs_smoke_detector_alarm_level
-    - sensor.upstairs_smoke_detector_alarm_type
+    - sensor.dryer_voltage
+    - sensor.dryer_previous_reading
+    - sensor.dryer_power
+    - sensor.dryer_energy
+    - sensor.dryer_current
