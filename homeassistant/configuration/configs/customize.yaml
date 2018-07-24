@@ -129,6 +129,7 @@
   light.bedroom_lamps:
     icon: mdi:lamp
   light.guest_bedroom_lamp:
+    friendly_name: "Guest Room Lamp"
     icon: mdi:lamp
   light.office_lamp:
     icon: mdi:lamp
