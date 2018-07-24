@@ -1,8 +1,8 @@
 - alias: 'Front Door Opened At Night'
   trigger:
     platform: state
-    entity_id: sensor.front_door_state
-    to: 'Open'
+    entity_id: binary_sensor.front_door_state
+    to: 'on'
   condition:
     - condition: sun
       after: sunset
@@ -14,8 +14,8 @@
 - alias: 'Front Door Closed At Night'
   trigger:
     platform: state
-    entity_id: sensor.front_door_state
-    to: 'Closed'
+    entity_id: binary_sensor.front_door_state
+    to: 'off'
     for:
       minutes: 3
   condition:

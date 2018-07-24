@@ -1,8 +1,8 @@
 - alias: Turn on main floor lights when there is movement
   trigger:
     platform: state
-    entity_id: sensor.mainfloor_multisensor_motion
-    to: 'Yes'
+    entity_id: binary_sensor.mainfloor_multisensor_motion
+    to: 'on'
   condition:
     condition: state
     entity_id: group.all_devices
@@ -14,8 +14,8 @@
 - alias: Turn off main floor lights 10 minutes after last movement
   trigger:
     platform: state
-    entity_id: sensor.mainfloor_multisensor_motion
-    to: 'No'
+    entity_id: binary_sensor.mainfloor_multisensor_motion
+    to: 'off'
     for:
       minutes: 10
   action:
