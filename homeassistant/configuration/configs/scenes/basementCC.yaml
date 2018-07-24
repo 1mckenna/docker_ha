@@ -1,4 +1,4 @@
 #Turn on TV and set to Chromecast in Basement
-- name: basement_chromecast
+- name: Basement Chromecast
   entities:
     script.basement_cc: on
