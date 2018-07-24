@@ -10,3 +10,19 @@
         data:
           target: !secret adminPhone
 
+  - platform: group
+    name: user_phone
+    services:
+      - service: notify
+        data:
+          target: !secret userPhone
+
+  - platform: group
+    name: both_phones
+    services:
+      - service: notify
+        data:
+          target: !secret adminPhone
+      - service: notify
+        data:
+          target: !secret userPhone

@@ -7,3 +7,4 @@ laundry:
     - binary_sensor.washing_machine
     - binary_sensor.dryer_running
     - binary_sensor.dryer_cooldown
+    - binary_sensor.dryer_door
