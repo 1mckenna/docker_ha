@@ -1,4 +1,6 @@
 # Home Assistant Docker Container for Raspi (docker_ha)
+## This repo no longer being maintained after migration off the Raspberry Pi. Refer to ha_config repo for Home Assistant Configuration and docker_builds repo for Docker Build Scripts (Home Assistant with patched OZW, etc... for running on x86_64)
+
 Follow the below steps to get docker and Home Assistant setup on your Raspberry Pi
 
 1. On your clean RPI (raspbian stretch python3.5) install docker using this command
